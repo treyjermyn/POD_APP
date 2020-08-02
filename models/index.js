@@ -10,7 +10,7 @@ const db = {};
 //check if env var is set
 let sequelize;
 if (process.env.APP_ENV) {
-  //printing message if uding dev environment
+  //printing message if uding dev enviro nment
   console.log(process.env.APP_ENV === "development" ? "USING DEV Vars for DB Connection\n" : "");
   //instantiating DB connection with sequelize
   sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
