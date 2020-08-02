@@ -142,11 +142,6 @@
     display: flex;
     align-items: center;
     background-color: aqua;
-  
-/*   
-      @media screen and (min-width: 40em) {
-          background-position: center;
-      } */
   }
   
   .hero-content-section {
@@ -221,9 +216,6 @@
   box-shadow: none;
   overflow: hidden;
   color: #0a0a0a;
-  /* display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr; */
   /* margin: 1px; */
   width: 20%;
   padding: 0;
@@ -248,7 +240,6 @@
 }
 
 /* student portal pop-up email form */
-@charset "UTF-8";
 
 .contact-panel-button {
   background: #0a0a0a;
