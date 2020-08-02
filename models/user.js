@@ -18,23 +18,19 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
         confirmed: {
+            //used for email verification. field will update 
+            //once user activates its account via registration email link
             type: DataTypes.BOOLEAN,
             defaultValue: 0,
             allowNull: false,
         },
-        created_at: {
-            type: 'TIMESTAMP',
-            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-            allowNull: false
-        }
     });
 
     //associations
     User.associate = (models) => {
         //User will associate with Role on Many:Many
         //allowing an user to have multiple roles if needed.
-        User.belongsToMany(models.Role, { through: "user_roles", foreignKey: "userId", otherKey: "userId" });
-        
+        User.belongsToMany(models.Role, { through: "user_roles", foreignKey: "userId", otherKey: "roleId" });
     };
 
     return User;
