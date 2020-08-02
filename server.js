@@ -12,35 +12,37 @@ require("custom-env").env("dev"); //env vars for development
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-//setting data parsing middlewares --JSON-- with Express
-app.use(express.urlencoded( { extended: true } ));
-app.use(express.json()); //request body parser
+// Requiring models for syncing
+// =============================================================
+const db = require("./models");
 
+//setting data parsing middlewares --JSON-- with Express
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); //request body parser
 
 //Setting static directory = public
 app.use(express.static("public"));
 
-
 // Routes
-const path = require("path");
+// const path = require("path");
 
-module.exports = function(app) {
+// module.exports = function(app) {
 
-  // Each of the below routes just handles the HTML page that the user gets sent to.
+//   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  // index route loads index.html
-  app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname,'../public/index.html'));
+// //   // index route loads index.html
+// //   app.get("/", function(req, res) {
+// //     res.sendFile(path.join(__dirname,'../public/index.html'));
+// //   });
+
+// };
+
+// Syncing DB models and then starting express server
+// =============================================================
+db.sequelize.sync({ force: true }).then(() => {
+  app.listen(PORT, () => {
+    console.log(
+      `SERVER ON => App listening on PORT ${PORT} :: ${process.env.APP_ENV} environment.`
+    );
   });
-
- 
-
-};
-// =============================================================
-
-
-// Server Initiated - Listening for incoming requests
-// =============================================================
-app.listen(PORT, () => {
-    console.log(`SERVER ON => App listening on PORT ${PORT} :: ${process.env.APP_ENV} environment.`)
 });
