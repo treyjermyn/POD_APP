@@ -22,11 +22,12 @@
   "dependencies": {
     "custom-env": "^2.0.1",
     "express": "^4.16.3",
-    "mysql2": "^1.6.4",
-    "sequelize": "^4.41.2",
     "foundation-sites": "^6.6.3",
-    "what-input": "^4.1.0",
-    "jquery": "^3.5.0"
+    "jquery": "^3.5.0",
+    "mysql2": "^1.6.4",
+    "sendgrid": "^5.2.3",
+    "sequelize": "^4.41.2",
+    "what-input": "^4.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
