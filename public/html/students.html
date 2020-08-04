@@ -47,11 +47,8 @@
       <div class="hero-content-section">
         <h1>Student Portal</h1>
         <p class="subheader">Manage your courses and lessons all in one place!</p>
-        <button class="button large">Courses</button>
-        <button class="button large">Lessons</button>
-      </div>
-      <div class="bottom-content-section" data-magellan data-threshold="0">
-        <a href="#courses-row"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 12c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12zm-18.005-1.568l1.415-1.414 4.59 4.574 4.579-4.574 1.416 1.414-5.995 5.988-6.005-5.988z"/></svg></a>
+        <a href="#courses-row"><button class="button large hero-button">Courses</button></a>
+        <a href="lessons.html"><button class="button large hero-button">Lessons</button></a>
       </div>
     </div>
   </div>
@@ -90,29 +87,31 @@
 </section>
 
 <!-- pop-up email form -->
-<div class="contact-panel" id="contact-panel" data-toggler=".is-active">
-  <a class="contact-panel-button" data-toggle="contact-panel">Contact Instructor</a>
-  <form action="">
-    <div class="row">
-      <label>Full name *
-        <input type="text" placeholder="Full name">
-      </label>
-    </div>
-    <div class="row">
-      <label>Email *
-        <input type="email" placeholder="Email address">
-      </label>
-    </div>
-    <div class="row">
-      <label>Message *
-        <textarea placeholder="Describe your needs" rows="3"></textarea>
-      </label>
-    </div>
-    <div class="contact-panel-actions">
-      <button class="cancel-button" data-toggle="contact-panel">Nevermind</button>
-      <input type="submit" class="button submit-button" value="Submit">
-    </div>
-  </form>
+<div class="popup-modal">
+  <div class="contact-panel" id="contact-panel" data-toggler=".is-active">
+    <a class="contact-panel-button" data-toggle="contact-panel">Contact Instructor</a>
+    <form action="">
+      <div class="row">
+        <label>Full name *
+          <input type="text" placeholder="Full name">
+        </label>
+      </div>
+      <div class="row">
+        <label>Email *
+          <input type="email" placeholder="Email address">
+        </label>
+      </div>
+      <div class="row">
+        <label>Message *
+          <textarea placeholder="Describe your needs" rows="3"></textarea>
+        </label>
+      </div>
+      <div class="contact-panel-actions">
+        <button class="cancel-button" data-toggle="contact-panel">Nevermind</button>
+        <input type="submit" class="button submit-button" value="Submit">
+      </div>
+    </form>
+  </div>
 </div>
 
 <!-- Login Modal -->
@@ -122,22 +121,69 @@
       <div class="small-12 medium-6 column small-order-2 medium-order-1">
         <div class="login-box-form-section">
           <h1 class="login-box-title">LOG IN</h1>
-          <input class="login-box-input" type="text" name="username" placeholder="Username" />
           <input class="login-box-input" type="email" name="email" placeholder="E-mail" />
           <input class="login-box-input" type="password" name="password" placeholder="Password" />
-          <input class="login-box-input" type="password" name="password2" placeholder="Retype password" />
-          <input class="login-box-submit-button" type="submit" name="signin_submit" value="Login" />
+          <input class="login-box-submit-button button medium" type="submit" name="signin_submit" value="Login" />
         </div>
       </div>
     </div>
   </div>
 </div>
 
+  <!-- Contact Us Modal -->
+  <div class = "reveal" id="contact-Modal" data-reveal>
+    <div class="contact-box">
+      <div class="row collapse expanded">
+        <div class="small-12 medium-6 column small-order-2 medium-order-1 contact-form">
+            <div class="contact-box-form-section contact-form">
+                <h1 class="contact-box-title">Contact Us</h1>
+                <label id="contact-field">Full name *
+                    <input type="text" id="contact-field" placeholder="Full name">
+                </label>
+            </div>
+            <div class="contact-form">
+              <label id="contact-field">Email *
+                <input type="email" id="contact-field" placeholder="Email address">
+              </label>
+            </div>
+            <div class="contact-form">
+              <label id="contact-field">Message *
+                <textarea id="contact-field" placeholder="Describe your needs" rows="3"></textarea>
+              </label>
+            <input class="login-box-submit-button button medium" type="submit" name="signin_submit" value="Send Email" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- footer -->
+<footer>
+  <div class="marketing-site-footer-bottom">
+    <div class="row large-unstack align-middle">
+      <div class="column">
+        <p class="footer-copy">&copy; 2020 All rights reserved</p>
+      </div>
+      <div class="column">
+        <ul class="menu marketing-site-footer-bottom-links footer-copy">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="html/instructors.html">Instructors</a></li>
+          <li><a href="html/students.html">Students</a></li>
+          <li><a href="#">Account</a></li>
+          <li><a href="#" data-open="contact-Modal">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
 <script src="../js/vendor/what-input.js"></script>
 <script src="../js/vendor/foundation.js"></script>
 <script src="../js/student.js"></script>
 </body>
 </html>
+
+
 
 
 
