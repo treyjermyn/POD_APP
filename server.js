@@ -25,7 +25,7 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
-
+// require('./routes/auth_router.js')(app);
 
 // Syncing DB models and then starting express server
 // =============================================================

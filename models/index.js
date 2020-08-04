@@ -5,7 +5,6 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const db = {};
-const sendgrid = require('sendgrid')(api_user,api_key)
 
 //DB connection with Sequelize
 //check if env var is set
@@ -47,13 +46,3 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
-
-// SendGrid API Script needs our Information.
-// var SendGrid = require('sendgrid-nodejs').SendGrid;
-// var sendgrid = new SendGrid(user, key);
-// sendgrid.send({
-//   to: 'example@example.com',
-//   from: 'other@example.com',
-//   subject: 'Hello World',
-//   text: 'My first email through SendGrid'
-// });
