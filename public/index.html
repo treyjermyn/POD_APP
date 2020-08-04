@@ -33,59 +33,62 @@
           <li><a href="#">Home</a></li>
           <li><a href="#">Instructors</a></li>
           <li><a href="#">Students</a></li>
-          <li><a href="#">Support</a></li>
+          <li><a href="#">Account</a></li>
           <li>
-            <button type="button" a href="#" class="button login-button hollow topbar-responsive-button">Login</button>
+            <button type="button" a href="#" class="button login-button hollow topbar-responsive-button" data-open="login-Modal">Login</button>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
+  <div class="hero-full-screen">
+    <div class="homepage-hero middle-content-section">
+      <div class="hero-content-section">
+        <h1>POD | E-Learning</h1>
+        <button class="button large">Login</button>
+        <button class="button large">Sign Up</button>
+      </div>
+      <div class="bottom-content-section" data-magellan data-threshold="0">
+        <a href="#homepage-row"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 12c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12zm-18.005-1.568l1.415-1.414 4.59 4.574 4.579-4.574 1.416 1.414-5.995 5.988-6.005-5.988z"/></svg></a>
+      </div>
+    </div>
   
-    
-  <!-- hero content -->
-  <div class="middle-content-section">
-    <div class="hero-content-section">
-      <h1 class="">POD | E-Learning</h1>
-      <p class="subheader">POD is an e-learning solution for K-12 students</p>
-      <button class="button large">Login</button>
-      <button class="button large">Sign Up</button>
+  
+  </div>
+  
+  <section class="marketing-site-three-up" id="homepage-row">
+    <div class="row medium-unstack">
+      <div class="columns">
+        <i class="fas fa-4x fa-chalkboard-teacher" aria-hidden="true"></i>
+        <h4 class="marketing-site-three-up-title">Instructors</h4>
+        <p class="marketing-site-three-up-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sint, voluptatibus eaque natus ad eius.</p>
+      </div>
+      <div class="columns">
+        <i class="fas fa-4x fa-user-graduate"></i>
+        <h4 class="marketing-site-three-up-title">Students</h4>
+        <p class="marketing-site-three-up-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sint, voluptatibus eaque natus ad eius.</p>
+      </div>
+    </div>  
+</section>
+  
+<!-- Login Modal -->
+<div class = "reveal" id="login-Modal" data-reveal>
+  <div class="login-box">
+    <div class="row collapse expanded">
+      <div class="small-12 medium-6 column small-order-2 medium-order-1">
+        <div class="login-box-form-section">
+          <h1 class="login-box-title">LOG IN</h1>
+          <input class="login-box-input" type="text" name="username" placeholder="Username" />
+          <input class="login-box-input" type="email" name="email" placeholder="E-mail" />
+          <input class="login-box-input" type="password" name="password" placeholder="Password" />
+          <input class="login-box-input" type="password" name="password2" placeholder="Retype password" />
+          <input class="login-box-submit-button" type="submit" name="signin_submit" value="Login" />
+        </div>
+      </div>
     </div>
   </div>
-    
-    <!-- <div id="main-content-section" data-magellan-target="main-content-section">
-      <p class="subheader">POD is an e-learning solution for K-12 students</p>
-    </div> -->
-    
-    <!-- hero content
-    <div class="marketing-site-hero">
-      <div class="marketing-site-hero-content">
-        <h1>POD | E-Learning</h1>
-        <p class="subheader">POD is an e-learning solution for K-12 students</p>
-        <a href="#" class="round button">learn more</a>
-      </div>
-    </div> -->
-
-    <section class="marketing-site-three-up">
-        <div class="row medium-unstack">
-          <div class="columns">
-            <!-- <i class="fa fa-gg" aria-hidden="true"></i> -->
-            <i class="fas fa-4x fa-chalkboard-teacher" aria-hidden="true"></i>
-            <h4 class="marketing-site-three-up-title">Instructors</h4>
-            <p class="marketing-site-three-up-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sint, voluptatibus eaque natus ad eius.</p>
-          </div>
-          <!-- <div class="columns">
-            <i class="fas fa-4x fa-user-friends"></i>            
-            <h4 class="marketing-site-three-up-title">Parents</h4>
-            <p class="marketing-site-three-up-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sint, voluptatibus eaque natus ad eius.</p>
-          </div> -->
-          <div class="columns">
-            <i class="fas fa-4x fa-user-graduate"></i>
-            <h4 class="marketing-site-three-up-title">Students</h4>
-            <p class="marketing-site-three-up-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sint, voluptatibus eaque natus ad eius.</p>
-          </div>
-        </div>  
-  </section>
+</div>
 
   
   <script src="js/vendor/what-input.js"></script>
