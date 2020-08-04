@@ -136,12 +136,11 @@
   /* //hero */
   
   .middle-content-section {
-    background-image: url('img/deleece-cook-zzjLGF_6dx4-unsplash.jpg') top right no-repeat;
     height: 65vh;
     background-size: cover;
     display: flex;
     align-items: center;
-    background-color: aqua;
+    background-repeat: no-repeat;
   }
   
   .hero-content-section {
@@ -166,6 +165,19 @@
       @media screen and (min-width: 40em) {
       padding-left: 0%;
       }
+  }
+
+  .homepage-hero {
+    background-image: url('../img/deleece-cook-zzjLGF_6dx4-unsplash.jpg');
+  }
+  .instructors-hero {
+    background-image: url('../img/deleece-cook-zzjLGF_6dx4-unsplash.jpg');
+  }
+  .students-hero {
+    background-image: url('../img/deleece-cook-zzjLGF_6dx4-unsplash.jpg');
+  }
+  .lessons-hero {
+    background-image: url('../img/deleece-cook-zzjLGF_6dx4-unsplash.jpg');
   }
   
   
