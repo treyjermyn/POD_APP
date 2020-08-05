@@ -1,7 +1,7 @@
 //Importing helping functions from utils
 //===========================================
-const VerifySignUp = require("../utils/fnVerifySignUp");
-const JwtTokenValidator = require("../utils/fnVerifyJwtToken");
+const VerifySignUp = require("../middlewares/fnVerifySignUp");
+const JwtTokenValidator = require("../middlewares/fnVerifyJwtToken");
 
 //auth routes
 module.exports = (app) => {
