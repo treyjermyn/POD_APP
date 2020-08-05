@@ -5,6 +5,7 @@
 // *** Importing Dependencies
 // =============================================================
 const express = require("express");
+const sequelize_fixtures = require("sequelize-fixtures");
 require("custom-env").env("dev"); //env vars for development
 
 // Instantiating Express App
@@ -31,7 +32,7 @@ require('./routes/auth_router.js')(app);
 // =============================================================
 db.sequelize.sync({ force: true })
   .then(() => {
-    sequelize_fixtures.loadFile("./db/fixtures/user_roles_fixture.js", db)
+    sequelize_fixtures.loadFile("./db/fixtures/user_roles_fixtures.js", db)
       .then(() => {
         console.log("===== DB Seeded Properly =====");
         app.listen(PORT, () => {

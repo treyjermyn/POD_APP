@@ -1,7 +1,7 @@
 //Importing helping functions from utils
 //===========================================
 const VerifySignUp = require("../utils/fnVerifySignUp");
-//const JwtTokenValidator = require("../utils/fnVerifyJwtToken");
+const JwtTokenValidator = require("../utils/fnVerifyJwtToken");
 
 //auth routes
 module.exports = (app) => {
@@ -16,6 +16,7 @@ module.exports = (app) => {
     //app.post("/api/auth/signin", authController.signin)
 
     //Defining test routes
-    //app.get('/api/test/student', [JwtTokenValidator.fnVerifyToken], authController.studentContent);
+    // app.get('/api/test/student', [JwtTokenValidator.fnVerifyToken], authController.studentContent);
+    app.get('/api/test/student', [JwtTokenValidator.isStudent], () => {console.log("Next Function for Student!")});
     //app.get('/api/test/admin', [JwtTokenValidator.verifyToken, JwtTokenValidator.isAdmin], authController.adminBoard);
 }
