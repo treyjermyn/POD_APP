@@ -29,10 +29,15 @@ require('./routes/auth_router.js')(app);
 
 // Syncing DB models and then starting express server
 // =============================================================
-db.sequelize.sync({ force: true }).then(() => {
-  app.listen(PORT, () => {
-    console.log(
-      `SERVER ON => App listening on PORT ${PORT} :: ${process.env.APP_ENV} environment.`
-    );
-  });
-});
+db.sequelize.sync({ force: true })
+  .then(() => {
+    sequelize_fixtures.loadFile("./db/fixtures/user_roles_fixture.js", db)
+      .then(() => {
+        console.log("===== DB Seeded Properly =====");
+        app.listen(PORT, () => {
+          console.log(
+            `===== SERVER ON => App listening on PORT ${PORT} :: ${process.env.APP_ENV} environment. =====`
+          );
+        });
+      });
+  }); 
