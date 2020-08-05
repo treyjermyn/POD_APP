@@ -15,7 +15,5 @@ module.exports = (app) => {
     app.post("/api/auth/signin", authController.signin)
 
     //Defining test routes
-    // app.get('/api/test/student', [JwtTokenValidator.fnVerifyToken], authController.studentContent);
-    //app.get('/api/test/student', [JwtTokenValidator.isStudent], () => {console.log("Next Function for Student!")});
-    //app.get('/api/test/admin', [JwtTokenValidator.verifyToken, JwtTokenValidator.isAdmin], authController.adminBoard);
+    app.get('/api/test/user', JwtTokenValidator.fnVerifyToken, authController.userContent);
 }

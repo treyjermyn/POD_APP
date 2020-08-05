@@ -22,7 +22,7 @@ const fnVerifyToken = (req, res, next) => {
     }
 
     //verify token
-    jwt.verify(token, SECRET, (err, decoded) => {
+    jwt.verify(jwtoken, SECRET, (err, decoded) => {
         if (err){
           return res.status(500).send({
               auth: false,
@@ -35,33 +35,6 @@ const fnVerifyToken = (req, res, next) => {
     });  
 }
 
-//TODO: Complete this function
-const isStudent = (req, res, next) => {
-    console.log(req)
-    //checking user's role
-    // User.findAll({
-    //     where:  {UserId: req.userid},
-    //     include: [Role] 
-    // })
-    //     .then( user => {
-    //         console.log(user);
-    //         res.status(200).send(user);
-    //     })
-    //next();
-}
-
-//TODO: Complete this function
-// const isInstructor = (req, res, next) => {
-//     //checking user's role
-//     User.findByPk(req.userId, { include: [Role] })
-//         .then( user => {
-//             console.log(user);
-//             res.status(200).send(user);
-//         })
-//     next();
-// }
-
 JwtTokenValidator["fnVerifyToken"] = fnVerifyToken;
-JwtTokenValidator["isStudent"] = isStudent;
 
 module.exports = JwtTokenValidator;

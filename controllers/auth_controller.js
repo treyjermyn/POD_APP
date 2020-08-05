@@ -103,4 +103,40 @@ exports.signin = (req, res) => {
     .catch((err) => {
       res.status(500).send("Error -> " + err);
     });
-};
+}
+
+//testing routes
+//===========================
+exports.userContent = (req, res) => {
+    //logging to console if in dev env
+  console.log(
+    `${
+      process.env.APP_ENV === "development"
+        ? "===== Returning Logged In user's content ====="
+        : ""
+    }`
+  );
+
+  User.findOne({
+      where: {
+          id: req.userId //this id comes from middleware after decoding JWT
+      },
+      attributes: ["first_name", "last_name", "email", "confirmed"],
+      include: [{
+          model: Role,
+          attributes: ["name"],
+          through: {
+              attributes: ["userId", "roleId"],
+          }
+      }]
+  }).then((user) => {
+      if (user){
+          res.status(200).json({
+              "message": "User Information",
+              "user": user,
+          })
+      }
+  }).catch((err) => {
+      res.status(500).send(`Error Retrieving user's information -> ${err}`);
+  });
+}
