@@ -8,6 +8,17 @@ const express = require("express");
 const sequelize_fixtures = require("sequelize-fixtures");
 require("custom-env").env("dev"); //env vars for development
 
+//TODO: Consider adding CORS as extra layer of security
+/**
+ * const cors = require("cors");
+ * --after app declaration
+ * const corsOptions = {
+ *  origin: "http://localhost:8000" //need to see how to make this work on Heroku
+ * }
+ * call middleware to use cors
+ * app.use(cors(corsOptions));
+ */
+
 // Instantiating Express App
 // =============================================================
 const app = express();
