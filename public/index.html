@@ -80,9 +80,9 @@
       <div class="small-12 medium-6 column small-order-2 medium-order-1">
         <div class="login-box-form-section">
           <h1 class="login-box-title">LOG IN</h1>
-          <input class="login-box-input" type="email" name="email" placeholder="E-mail" />
-          <input class="login-box-input" type="password" name="password" placeholder="Password" />
-          <input class="login-box-submit-button button medium" type="submit" name="signin_submit" value="Login" />
+          <input class="login-box-input" type="email" name="email" placeholder="E-mail" id="userID-Login"/>
+          <input class="login-box-input" type="password" name="password" placeholder="Password" id=pwd-Login />
+          <input class="login-box-submit-button button medium" type="submit" name="signin_submit" value="Login" id="signin-Login" />
         </div>
       </div>
     </div>
@@ -91,21 +91,30 @@
 
 <!-- Sign-up Modal -->
 <div class = "reveal" id="signup-Modal" data-reveal>
-  <div class="signup-box">
-    <div class="row collapse expanded">
-      <div class="small-12 medium-6 column small-order-2 medium-order-1">
-        <div class="signup-box-form-section">
-          <h1 class="signup-box-title">Sign Up</h1>
-          <input class="lsignup-box-input" type="text" name="firstname" placeholder="First Name" />
-          <input class="lsignup-box-input" type="text" name="lastname" placeholder="Last Name" />
-          <input class="lsignup-box-input" type="email" name="email" placeholder="E-mail" />
-          <input class="lsignup-box-input" type="password" name="password" placeholder="Password" />
-          <input class="lsignup-box-input" type="password" name="password2" placeholder="Retype password" />
-          <input class="lsignup-box-submit-button button medium" type="submit" name="signin_submit" value="Create Account" />
+  <form data-abide novalidate>
+    <div class="signup-box">
+      <div class="row collapse expanded">
+        <div class="small-12 medium-6 column small-order-2 medium-order-1">
+          <div class="signup-box-form-section">
+            <h1 class="signup-box-title">Sign Up</h1>
+            <input class="lsignup-box-input" type="text" name="firstname" placeholder="First Name" required/>
+            <p class="help-text" id="firstname">This is a required field</p>
+            <input class="lsignup-box-input" type="text" name="lastname" placeholder="Last Name" required/>
+            <p class="help-text" id="lastname">This is a required field</p>
+            <input class="lsignup-box-input" type="email" name="email" placeholder="E-mail" required pattern="email"/>
+            <p class="help-text" id="email">This is a required field</p>
+            <input class="lsignup-box-input" type="password" name="password" id="pwd1" placeholder="Password" required pattern="alpha_numeric" minlength="8" maxlength="21"/>
+            <p class="help-text" id="password">Password must be alpha_numeric and between 8-21 character long</p>
+            <span class="form-error">Hey, passwords are supposed to match!</span>
+            <input class="lsignup-box-input" type="password" name="password2" placeholder="Retype password" required pattern="alpha_numeric" data-equalto ="pwd1" />
+            <span class="form-error">Hey, passwords are supposed to match!</span>
+            <input class="lsignup-box-submit-button button medium" type="submit" name="signin_submit" value="Create Account" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
+  
 </div>
 
   <!-- Contact Us Modal -->
