@@ -25,9 +25,9 @@ exports.signup = (req, res) => {
 
   //using User model to save information
   User.create({
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    email: req.body.email,
+    first_name: req.body.first_name.toUpperCase(),
+    last_name: req.body.last_name.toUpperCase(),
+    email: req.body.email.toUpperCase(),
     password: bcrypt.hashSync(req.body.password, 10),
   })
     .then((user) => {

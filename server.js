@@ -37,7 +37,8 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
-require('./routes/auth_router.js')(app);
+require('./routes/auth_router.js')(app);//authentication and login api routes
+require("./routes/user_router.js")(app); //student and instructor portals
 
 // Syncing DB models and then starting express server
 // =============================================================

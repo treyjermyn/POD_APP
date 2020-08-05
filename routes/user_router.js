@@ -1,5 +1,5 @@
 //importing JWT Validator
-const JwtTokenValidator = require("../middleware/fnVerifyJwtToken");
+const JwtTokenValidator = require("../middlewares/fnVerifyJwtToken");
 //importing user controller for redirection
 const userController = require("../controllers/user_controller");
 
