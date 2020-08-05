@@ -52,3 +52,55 @@ exports.signup = (req, res) => {
       res.status(500).send("Fail! Error -> " + err);
     });
 };
+
+
+exports.signin = (req, res) => {
+  //logging to console if in dev env
+  console.log(
+    `${
+      process.env.APP_ENV === "development"
+        ? "===== User Sign in ====="
+        : ""
+    }`
+  );
+
+  User.findOne({
+    where: {
+      email: req.body.email,
+      //include: Role
+    },
+  })
+    .then((user) => {
+      if (!user) {
+        return res.status(404).send("Login failed. User Not Found!");
+      }
+
+      const isPasswordValid = bcrypt.compareSync(
+        req.body.password,
+        user.password
+      );
+      if (!isPasswordValid) {
+        return res
+          .status(401)
+          .send({
+            auth: false,
+            accessToken: null,
+            reason: "Login failed. Invalid Password!",
+          });
+      }
+      //if user exist and password is valid, return access token
+      const jwToken = jwt.sign({ id: user.id }, SECRET, {
+        expiresIn: 86400, // expires in 24 hours
+      });
+      //getting user role
+      user.getRoles().then((role) => {
+        res.status(200).send({ auth: true, role: role[0].name, accessToken: jwToken });
+      })
+      .catch( (err) => {
+        res.status(500).send("Error Verifying Role -> " + err);
+      });
+    })
+    .catch((err) => {
+      res.status(500).send("Error -> " + err);
+    });
+};
