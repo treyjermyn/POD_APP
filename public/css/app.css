@@ -128,27 +128,31 @@
     }
   }
   
-  
   h1 {
-      font-size: 40px;
+      font-size: 60px;
     }
+
+  .subheader {
+    color: white;
+  }  
   
   /* //hero */
   
   .middle-content-section {
-    background-image: url('img/deleece-cook-zzjLGF_6dx4-unsplash.jpg') top right no-repeat;
     height: 65vh;
     background-size: cover;
     display: flex;
     align-items: center;
-    background-color: aqua;
+    background-repeat: no-repeat;
   }
   
   .hero-content-section {
     max-width: inherit;
     margin: 0 auto;
-    padding-right: 50%;
+    padding-top: 8%;
     color: white;
+    text-align: center;
+
   }
 
   .bottom-content-section {
@@ -167,11 +171,59 @@
       padding-left: 0%;
       }
   }
+
+  .hero-button {
+    margin-top: 10px;
+  }
+
+
+  /*full page hero*/
+  .homepage-hero {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: url("../img/claude-sanders-SyRRzZ0XzaM-unsplash.jpg") center center no-repeat;
+    background-size: cover;
+  }
   
+  .hero-full-screen .middle-content-section {
+    text-align: center;
+    color: #fefefe;
+  }
+  
+  .hero-full-screen .top-content-section {
+    width: 100%;
+  }
+  
+  .hero-full-screen .bottom-content-section {
+    padding: 1rem;
+  }
+  
+  .hero-full-screen .bottom-content-section svg {
+    height: 3.75rem;
+    width: 3.75rem;
+    fill: #fefefe;
+  }
+
+  .instructors-hero {
+    background-image: url('../img/thought-catalog-xHaZ5BW9AY0-unsplash.jpg');
+  }
+  .students-hero {
+    background-image: url('../img/element5-digital-jCIMcOpFHig-unsplash.jpg');
+  }
+  .lessons-hero {
+    background-image: url('../img/element5-digital-OyCl7Y4y0Bk-unsplash.jpg');
+  }
+
+  .lessons-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   
   /* //three sections */
-  
-  
   .marketing-site-three-up {
     text-align: center;
     padding: 2rem 0;
@@ -247,10 +299,11 @@
   width: auto;
   padding: 0.25rem 1.25rem;
   text-align: center;
-  position: absolute;
-  top: -30px;
-  right: 20px;
+  position: relative;
+  top: -40px;
+  right: 16px;
   transition: background 0.25s ease-in-out;
+  
 }
 
 .contact-panel-button:after {
@@ -272,9 +325,9 @@
   z-index: 1;
   background: #0a0a0a;
   width: 350px;
-  height: 375px;
+  height: 400px;
   position: fixed;
-  bottom: -375px;
+  bottom: -400px;
   right: 20px;
   transition: bottom 0.5s ease-in-out;
 }
@@ -336,6 +389,103 @@
     right: 0;
   }
 }
+
+.popup-modal {
+  right: 50px;
+}
+
+/* lessons page styling */
+
+.filter-simple .button-group {
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.filter-simple .filter-simple-button.hollow.is-active, .filter-simple .filter-simple-button.hollow:focus, .filter-simple .filter-simple-button.hollow:active {
+  background-color: #1779ba;
+  color: #fefefe;
+}
+
+.button-group.round :first-child {
+  border-radius: 5000px 0 0 5000px;
+}
+
+.button-group.round :last-child {
+  border-radius: 0 5000px 5000px 0;
+}
+
+.column-block {
+  margin-bottom: 30px;
+}
+
+.lessons-row {
+  margin-top: 20px;
+}
+
+/*   footer */
+
+.marketing-site-footer-bottom {
+  background: #2c3840;
+  padding: 1rem 0;
+}
+
+.marketing-site-footer-bottom p,
+.marketing-site-footer-bottom .menu {
+  margin-bottom: 0;
+}
+
+.marketing-site-footer-bottom .marketing-site-footer-bottom-links {
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.marketing-site-footer-bottom .marketing-site-footer-bottom-links a {
+  color: #8aa0ae;
+}
+
+@media screen and (max-width: 63.9375em) {
+  .marketing-site-footer-bottom .marketing-site-footer-bottom-links {
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media screen and (max-width: 63.9375em) {
+  .marketing-site-footer-bottom {
+    text-align: center;
+  }
+}
+
+  .footer-copy {
+      margin-left: 1rem;
+      line-height: 1.125rem;
+      color: white;
+  }
+
+  /* contact us modal */
+  .contact-form {
+    width: 350px;
+    margin-right: 0px;
+  }
+  
+  .contact-field {
+    width: 110%;
+  }
+
+  .message {
+    margin-right: 0;
+    width: 115%;
+  }
+
+  /* #contact-Modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+
 
 
 
