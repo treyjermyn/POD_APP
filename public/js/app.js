@@ -17,6 +17,15 @@ $(".filter-simple-button").click(function() {
     $(this).siblings().removeClass('is-active');
     $(this).addClass('is-active');
   });
+
+  //student roster toggling
+  $('[data-open-details]').click(function (e) {
+    e.preventDefault();
+    $(this).next().toggleClass('is-active');
+    $(this).toggleClass('is-active');
+  });
+  
+  
   
   //Log in button
   $("#signin-Login").on("click", function(){
