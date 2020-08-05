@@ -33,9 +33,9 @@ const fnCheckRoles = (req, res, next) => {
             res.status(400).send("Registration failed! -> Selected Role is not valid. Contact Admin for support.");
             return;
         }
-        res.status(200).json(roles);
+        //calling sign up function from controller
+        next();
     });
-    next();
 }
 
 //adding methods to object

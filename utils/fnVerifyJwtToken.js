@@ -1,4 +1,4 @@
-//Verify SignUp Middleware functions
+//Verify SignIn & Role verification Middleware functions
 //====================================
 const jwt = require('jsonwebtoken');
 //calling in models to verify if sign in information already exists

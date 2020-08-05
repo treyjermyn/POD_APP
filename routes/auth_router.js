@@ -6,11 +6,10 @@ const JwtTokenValidator = require("../utils/fnVerifyJwtToken");
 //auth routes
 module.exports = (app) => {
     //including controller here to be exported
-    //const authController = require("../controllers/auth_controller");
+    const authController = require("../controllers/auth_controller");
 
     //defining route for signup
-    //app.post("/api/auth/signup", [VerifySignUp.fnCheckDuplicateEmail, VerifySignUp.fnCheckRoles], authController.signup);
-    app.post("/api/auth/signup", [VerifySignUp.fnCheckDuplicateEmail, VerifySignUp.fnCheckRoles], () => {console.log("Next Function here!")});
+    app.post("/api/auth/signup", [VerifySignUp.fnCheckDuplicateEmail, VerifySignUp.fnCheckRoles], authController.signup);
 
     //defining route for signin
     //app.post("/api/auth/signin", authController.signin)
