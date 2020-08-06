@@ -1,5 +1,7 @@
 $(document).foundation()
 
+const handlebars = require("handlebars");
+
 // closes the panel on click outside
 $(document).mouseup(function (e) {
     var container = $('#contact-panel');
@@ -9,3 +11,15 @@ $(document).mouseup(function (e) {
         container.removeClass('is-active');
       }
 });
+
+  //student roster toggling
+  $('[data-open-details]').click(function (e) {
+    e.preventDefault();
+    $(this).next().toggleClass('is-active');
+    $(this).toggleClass('is-active');
+  });
+
+  //function to create new student roster entry
+  function newStudent() {
+    
+  }
