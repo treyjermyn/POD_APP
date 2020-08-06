@@ -29,6 +29,8 @@ exports.signup = (req, res) => {
     last_name: req.body.last_name.toUpperCase(),
     email: req.body.email.toUpperCase(),
     password: bcrypt.hashSync(req.body.password, 10),
+    emailToken: crypto.randomBytes(64).toString('hex'),
+    isVerified: false,
   })
     .then((user) => {
       Role.findAll({
@@ -42,6 +44,30 @@ exports.signup = (req, res) => {
           user.setRoles(roles).then(() => {
             res.status(200).send("User registered successfully!");
             //TODO: Send registration email.
+            const msg = {
+              from: 'noreply@gmail.com',
+              to: user.email,
+              subject: 'POD Learning - Email Verification',
+              text: `
+                Thank you for registering at POD Learning!
+                Copy and Paste the address below to verify your account.
+                http://${req.headers.host}/verfiy-email?token=${user.email}
+              `,
+              html: `
+                <h1>Hello,<h1>
+                <p>Thank you for registering at POD Learning!<p>
+                <p>Copy and Paste the address below to verify your account.<p>
+                <a href=" http://${req.headers.host}/verfiy-email?token=${user.email}">Verify your account</a>
+              `
+            }
+            try {
+              await SpeechGrammarList.send(msg);
+              req.flash('success', 'Thanks for registering. Please check your email to verify your account')
+              req.redirect('/')
+            } catch(error) {
+              console.log(error);
+              req.flash('error', 'Something went wrong')
+            }
           });
         })
         .catch((err) => {

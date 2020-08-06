@@ -17,11 +17,14 @@ module.exports = (sequelize, DataTypes) => {
                 isEmail: true
             },
         },
+        emailToken: {
+            type: DataTypes.STRING
+        },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        confirmed: {
+        isVerified: {
             //used for email verification. field will update 
             //once user activates its account via registration email link
             type: DataTypes.BOOLEAN,
