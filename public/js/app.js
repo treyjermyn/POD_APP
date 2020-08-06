@@ -18,15 +18,6 @@ $(".filter-simple-button").click(function() {
     $(this).addClass('is-active');
   });
 
-  //student roster toggling
-  $('[data-open-details]').click(function (e) {
-    e.preventDefault();
-    $(this).next().toggleClass('is-active');
-    $(this).toggleClass('is-active');
-  });
-  
-  
-  
   //Log in button
   $("#signin-Login").on("click", function(){
     let userId = $("#userID-Login").val()
@@ -55,5 +46,10 @@ $(".filter-simple-button").click(function() {
   //function to validate email
   function emailIsValid (email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  }
+
+  //function to create new student roster entry
+  function newStudent() {
+
   }
   
