@@ -35,6 +35,9 @@ module.exports = (sequelize, DataTypes) => {
         //User will associate with Role on Many:Many
         //allowing an user to have multiple roles if needed.
         User.belongsToMany(models.Role, { through: "user_roles", foreignKey: "userId", otherKey: "roleId" });
+        //association to class model
+        User.belongsToMany(models.Class, { through: "users_classes", foreignKey: "userId", otherKey: "classId" });
+
     };
 
     return User;
