@@ -10,7 +10,7 @@ class Instructor extends User {
       this.classes = []
       this.role = "Instructor"
     }
-    set role (){
+    get role (){
       return this.role
     }
     get classes (Array){
