@@ -66,19 +66,35 @@ $(".filter-simple-button").click(function() {
     })
     .on("valid.zf.abide", function(ev, elem){
       $("#register").prop("disabled", false)
-      $("#register").on("click", function(){
-        event.preventDefault()
-        console.log("Am here")
-        let fname = $("#fname").val()
-        let lname = $("#lname").val()
-        let email = $("#mail-register").val()
-        let pwd = $("#pwd1").val() 
-        //Ajax post call goes here 
-        console.log(fname, lname, email, pwd)  
-
-
-      })
      
+    });
+
+    $("#register").on("click", function(){
+      event.preventDefault();
+      console.log("Am here")
+      let fname = $("#fname").val()
+      let lname = $("#lname").val()
+      let email = $("#mail-register").val()
+      let pwd = $("#pwd1").val() 
+      //Ajax post call goes here 
+      console.log(fname, lname, email, pwd)  
+
+      $.ajax({
+        // url: location.hostname + "/api/auth/signup",
+        url: "http://localhost:8000/api/auth/signup",
+        method: "POST",
+        data: {
+              "first_name": fname,
+              "last_name": lname,
+              "email": email,
+              "role": "STUDENT",
+              "password": pwd
+            },
+        success: (response) =>{
+          console.log("my response", response);
+          //hide login button
+        }
+      });
     })
   
 
