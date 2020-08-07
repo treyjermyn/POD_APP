@@ -1,6 +1,22 @@
 $(document).foundation()
-
+import(User)
 const handlebars = require("handlebars");
+const User = require("./app");
+
+//Instructor class declaration
+class Instructor extends User {
+    constructor(fname, lname, email, role, classes){
+      super(fname, lname, email)
+      this.classes = []
+      this.role = "Instructor"
+    }
+    get role (){
+      return this.role
+    }
+    get classes (Array){
+      return this.classes = Array;
+    }
+}
 
 // closes the panel on click outside
 $(document).mouseup(function (e) {
