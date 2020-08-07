@@ -1,5 +1,23 @@
+const User = require("./app");
+const { fn } = require("sequelize");
+
 // closes the panel on click outside
 $(document).foundation()
+
+//importing classes
+import(User)
+
+class Student extends User{
+    constructor(fname, lname, email, role){
+      super(fname, lname, email)
+      this.role = "student"
+    }
+
+    get role(){
+      return this.role
+    }
+}
+
 
 // closes the panel on click outside
 $(document).mouseup(function (e) {
