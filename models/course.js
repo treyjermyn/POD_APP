@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Course = sequelize.define("Course", {
-    //defining fields for User model
+    //defining fields for Course model
     course_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -17,13 +17,13 @@ module.exports = (sequelize, DataTypes) => {
 
   //associations
   Course.associate = (models) => {
-    //Class associates with many users and lessons
+    //Course associates with many users and lessons
     Course.belongsToMany(models.User, {
-      through: models.Users_Classes,
+      through: models.Users_Courses,
       foreignKey: "courseId",
       otherKey: "userId",
     });
-    //class hasMany lessons.
+    //course hasMany lessons.
     Course.hasMany(models.Lesson, {
       onDelete: "cascade",
     });

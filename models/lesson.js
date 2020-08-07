@@ -12,16 +12,22 @@ module.exports = (sequelize, DataTypes) => {
 
   //associations
   Lesson.associate = (models) => {
-    Lesson.belongsTo(models.Class, {
+    Lesson.belongsTo(models.Course, {
       foreignKey: {
         allowNull: false,
       },
     });
     Lesson.belongsToMany(models.Content, {
-        through: "lesson_content",
-        foreignKey: "lessonId",
-        otherKey: "contentId",
-      });
+      through: "lesson_content",
+      foreignKey: "lessonId",
+      otherKey: "contentId",
+    });
+    //association to user model
+    Lesson.belongsToMany(models.User, {
+      through: models.Users_Lessons,
+      foreignKey: "lessonId",
+      otherKey: "userId",
+    });
   };
   return Lesson;
 };
