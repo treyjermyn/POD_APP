@@ -1,3 +1,8 @@
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
+const { Sequelize } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define("User", {
         //defining fields for User model
@@ -28,7 +33,64 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: 0,
             allowNull: false,
         },
-    });
+        resetPasswordToken: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        resetPasswordExpires: {
+            type: Sequelize.DATE,
+            allownull: true
+        }
+    }, {timestamps: true});
+
+    User.beforeCreate = ('save', function(next) {
+        const user = this
+
+        if(!user.changed('password')) {
+            return next()
+        }
+
+        bcrypt.genSalt(10, function(err, salt) {
+            if (err) {
+                return next(err)
+            }
+
+            bcrypt.hash(user.password, salt, function(err, hash) {
+                if (err) {
+                    return next(err)
+                }
+
+                user.password = hash
+                next()
+            })
+        })
+    })
+
+    User.prototype.comparePassword = function(password) {
+        return bcrypt.compareSync(password, this.password)
+    }
+
+    User.prototype.generateJWT = function() {
+        const today = new Date()
+        const expDate = new Date(today)
+        expDate.setDate(today.getDate() + 60)
+
+        let payload = {
+            id: this._id,
+            first_name: this.first_name,
+            last_name: this.last_name,
+            email: this.email
+        }
+
+        return jwt.sign(payload, process.env.JWT_SECRET, {
+            expiresIn: parseInt(expDate.getTime() / 1000, 10)
+        })
+    }
+
+    User.prototype.generatePasswordReset = function() {
+        this.resetPasswordToken = crypto.randomBytes(20).toString('hex')
+        this.resetPasswordExpires = Date.now() + 360000
+    }
 
     //associations
     User.associate = (models) => {
@@ -38,4 +100,5 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     return User;
-} 
+
+}

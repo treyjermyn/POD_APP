@@ -7,6 +7,7 @@
 const express = require("express");
 const sequelize_fixtures = require("sequelize-fixtures");
 require("custom-env").env("dev"); //env vars for development
+const path = require("path") //remove
 
 // Instantiating Express App
 // =============================================================
@@ -15,7 +16,7 @@ const PORT = process.env.PORT || 8000;
 
 // Requiring models for syncing
 // =============================================================
-const db = require("./models");
+const db = require("./models/");
 
 //setting data parsing middlewares --JSON-- with Express
 app.use(express.urlencoded({ extended: true }));
@@ -23,6 +24,9 @@ app.use(express.json()); //request body parser
 
 //Setting static directory = public
 app.use(express.static("public"));
+// view engine setup
+// app.set('views', path.join(__dirname, 'views'));  //remove
+// app.set('view engine', 'jade'); //remove
 
 // Routes
 // =============================================================
