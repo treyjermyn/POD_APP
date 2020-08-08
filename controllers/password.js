@@ -1,8 +1,8 @@
-// const User = require("../models/user");
+const User = require("../models/user")();
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SG_API_KEY);
-const db = require("../models/index");
-const User = db.User
+// const db = require("../models/index");
+// const User = db.User
 
 // PASSWORD RESET AND RECOVER
 
@@ -18,21 +18,21 @@ exports.recover = (req, res) => {
             return res.status(401).send("The email address " + req.body.email + " is not associated with any account. Double-check your email address and try again.")
         }
 
-      //GENERATE AND SET PW RESET TOKEN
-      user.generatePasswordReset();
+  //GENERATE AND SET PW RESET TOKEN
+  user.generatePasswordReset();
 
-      //SAVE UPDATED USER OBJECT
-      user.save()
-        .then(user => {
-          //SEND EMAIL
-          let link =
-            "http://" +
-            req.headers.host +
-            "/api/auth/reset/" +
-            user.resetPasswordToken;
-          const mailOpt = {
-            to: user.email,
-            from: process.env.FROM_EMAIL,
+  //SAVE UPDATED USER OBJECT
+    user.save()
+      .then(user => {
+      //SEND EMAIL
+        let link =
+          "http://" +
+          req.headers.host +
+          "/api/auth/reset/" +
+          user.resetPasswordToken;
+        const mailOpt = {
+          to: user.email,
+          from: process.env.FROM_EMAIL,
             subject: "Password change request",
             text: `Hi ${user.email} \n
                     Please click on the following link ${link} to reset your password. \n\n 
@@ -41,12 +41,16 @@ exports.recover = (req, res) => {
 
           sgMail.send(mailOpt, function(err, res) {
             if (err) {
-                return res.status(500).json({ message: err });
+                // return res.status(500).json({ message: err });
+                console.log('reset email error')
+            } else{
+              console.log('reset email sent')
             }
-            res.status(200).json({message: "A reset email has been sent to " + user.email + "."});
+            // res.status(200).json({message: "A reset email has been sent to " + user.email + "."});
+            // console.log('reset email sent')
           });
         })
-        .catch(err => res.status(500).json({ message: err.message }));
+        .catch((err) => res.status(500).json({ message: err.message }));
     })
     .catch(err => res.status(500).json({ message: err.message }));
 };

@@ -7,7 +7,6 @@
 const express = require("express");
 const sequelize_fixtures = require("sequelize-fixtures");
 require("custom-env").env("dev"); //env vars for development
-const path = require("path") //remove
 
 // Instantiating Express App
 // =============================================================
@@ -25,8 +24,6 @@ app.use(express.json()); //request body parser
 //Setting static directory = public
 app.use(express.static("public"));
 // view engine setup
-// app.set('views', path.join(__dirname, 'views'));  //remove
-// app.set('view engine', 'jade'); //remove
 
 // Routes
 // =============================================================
