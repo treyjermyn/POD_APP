@@ -92,13 +92,28 @@ module.exports = (sequelize, DataTypes) => {
         this.resetPasswordExpires = Date.now() + 360000
     }
 
-    //associations
-    User.associate = (models) => {
-        //User will associate with Role on Many:Many
-        //allowing an user to have multiple roles if needed.
-        User.belongsToMany(models.Role, { through: "user_roles", foreignKey: "userId", otherKey: "roleId" });
-    };
+  //associations
+  User.associate = (models) => {
+    //User will associate with Role on Many:Many
+    //allowing an user to have multiple roles if needed.
+    User.belongsToMany(models.Role, {
+      through: "user_roles",
+      foreignKey: "userId",
+      otherKey: "roleId",
+    });
+    //association to course model
+    User.belongsToMany(models.Course, {
+      through: models.Users_Courses,
+      foreignKey: "userId",
+      otherKey: "courseId",
+    });
+    //association to lesson model
+    User.belongsToMany(models.Lesson, {
+      through: models.Users_Lessons,
+      foreignKey: "userId",
+      otherKey: "lessonId",
+    });
+  };
 
-    return User;
-
-}
+  return User;
+};

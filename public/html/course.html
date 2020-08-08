@@ -17,7 +17,11 @@
     <!-- custom stylesheets -->
     <link rel="stylesheet" type="text/css" href="../css/foundation.css">
     <!-- <link rel="stylesheet" type="text/css" href="/public/css/foundation.min.css"> -->
-  <link rel="stylesheet" type="text/css" href="../css/app.css">
+   <link rel="stylesheet" type="text/css" href="../css/app.css">
+
+   <!--Video loading CDN using video JS-->
+   <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+
   </head>
 
 <body>
@@ -44,10 +48,10 @@
   <!-- hero content -->
     <div class="lessons-hero homepage-hero middle-content-section">
         <div class="hero-content-section roster-hero">
-            <h1>Instructor Courses</h1>
-            <p class="subheader">View and manage instructor courses.</p>
-            <a href="#"><button class="button large hero-button" data-open="course-Modal">Add New Course</button></a>
-            <a href="instructors.html"><button class="button large hero-button">Back to Portal</button></a>
+            <h1 id="course-name">Instructors | {Course Name} Lessons</h1>
+            <p class="subheader">View and manage course lessons & content.</p>
+            <a href="instructor-courses.html"><button class="button large hero-button">Back to Courses</button></a>
+            <!-- <a href="instructors.html"><button class="button large hero-button">Back to Portal</button></a> -->
         </div>
     </div>
 
@@ -55,46 +59,46 @@
     <section class="filter-simple lessons-row">
       <div class="button-group round">
         <button class="button hollow filter-simple-button is-active" data-filter="all">All</button>
-        <button class="button hollow filter-simple-button" data-filter="current">Current</button>
-        <button class="button hollow filter-simple-button" data-filter="past">Past</button>
-        <button class="button hollow filter-simple-button" data-filter="future">Future</button>
+        <button class="button hollow filter-simple-button" data-filter="space">Current</button>
+        <button class="button hollow filter-simple-button" data-filter="animals">Past</button>
+        <button class="button hollow filter-simple-button" data-filter="nature">Future</button>
       </div>
     
       <div class="row small-up-2 medium-up-3 large-up-4">
-        <div class="column column-block filter-simple-item current">
-          <a href="course.html"><img src="https://spaceholder.cc/350x350" alt=""/></a>
-        </div>
-        <div class="column column-block filter-simple-item future">
-          <img src="https://placeimg.com/350/350/nature" alt="" />
-        </div>
-        <div class="column column-block filter-simple-item past">
-          <img src="https://placeimg.com/350/350/animals" alt="" />
-        </div>
-        <div class="column column-block filter-simple-item past">
-          <img src="https://placeimg.com/350/350/animals" alt="" />
-        </div>
-        <div class="column column-block filter-simple-item past">
-          <img src="https://placeimg.com/350/350/animals" alt="" />
-        </div>
-        <div class="column column-block filter-simple-item future">
-          <img src="https://placeimg.com/350/350/nature" alt="" />
-        </div>
-        <div class="column column-block filter-simple-item future">
-          <img src="https://placeimg.com/350/350/nature" alt="" />
-        </div>
-        <div class="column column-block filter-simple-item past">
-          <img src="https://placeimg.com/350/350/animals" alt="" />
-        </div>
-        <div class="column column-block filter-simple-item future">
-          <img src="https://placeimg.com/350/350/nature" alt="" />
-        </div>
-        <div class="column column-block filter-simple-item past">
-          <img src="https://placeimg.com/350/350/animals" alt="" />
-        </div>
-        <div class="column column-block filter-simple-item current">
+        <div class="column column-block filter-simple-item space">
           <img src="https://spaceholder.cc/350x350" alt="" />
         </div>
-        <div class="column column-block filter-simple-item current">
+        <div class="column column-block filter-simple-item nature">
+          <img src="https://placeimg.com/350/350/nature" alt="" />
+        </div>
+        <div class="column column-block filter-simple-item animals">
+          <img src="https://placeimg.com/350/350/animals" alt="" />
+        </div>
+        <div class="column column-block filter-simple-item animals">
+          <img src="https://placeimg.com/350/350/animals" alt="" />
+        </div>
+        <div class="column column-block filter-simple-item animals">
+          <img src="https://placeimg.com/350/350/animals" alt="" />
+        </div>
+        <div class="column column-block filter-simple-item nature">
+          <img src="https://placeimg.com/350/350/nature" alt="" />
+        </div>
+        <div class="column column-block filter-simple-item nature">
+          <img src="https://placeimg.com/350/350/nature" alt="" />
+        </div>
+        <div class="column column-block filter-simple-item animals">
+          <img src="https://placeimg.com/350/350/animals" alt="" />
+        </div>
+        <div class="column column-block filter-simple-item nature">
+          <img src="https://placeimg.com/350/350/nature" alt="" />
+        </div>
+        <div class="column column-block filter-simple-item animals">
+          <img src="https://placeimg.com/350/350/animals" alt="" />
+        </div>
+        <div class="column column-block filter-simple-item space">
+          <img src="https://spaceholder.cc/350x350" alt="" />
+        </div>
+        <div class="column column-block filter-simple-item space">
           <img src="https://spaceholder.cc/350x350" alt="" />
         </div>
       </div>
@@ -139,10 +143,6 @@
             <div>
                 <input class="course-modal-input" type="checkbox" name="mathcheckbox" placeholder="Language Arts"/>
                 <label>Language Arts</label>
-            </div>
-            <div>
-                <input class="course-modal-input" type="checkbox" name="mathcheckbox" placeholder="Computer Science"/>
-                <label>Computer Science</label>
             </div>
             <input class="course-modal-submit-button button medium" type="submit" name="new_course_submit" value="Add Course"/>
           </div>
@@ -201,5 +201,6 @@
   <script src="../js/vendor/what-input.js"></script>
   <script src="../js/vendor/foundation.js"></script>
   <script src="../js/app.js"></script>
+  <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
 </body>
 </html>
