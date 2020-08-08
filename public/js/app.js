@@ -7,15 +7,14 @@ const number = document.getElementById("number");
 const length = document.getElementById("length");
 
 //Class person for use all over the app
-class User {
-    constructor(fname, lname, email){
-      this.fname = fname;
-      this.lname = lname;
-      this.email = email;
-    }
+// class User {
+//     constructor(fname, lname, email){
+//       this.fname = fname;
+//       this.lname = lname;
+//       this.email = email;
+//     }
 
-}
-
+// }
 
 //lessons content filtering
 // shows and hides filtered items
