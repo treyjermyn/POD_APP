@@ -41,20 +41,32 @@ $(".filter-simple-button").click(function() {
   })
     .on("valid.zf.abide", function(ev, elem){
       $("#signin-Login").prop("disabled", false)
-      $("#signin-Login").on("click", function(){
-        event.preventDefault()
-        let userId = $("#userID-Login").val()
-        let pwd = $("#pwd-Login").val()
-        console.log("Am here")
-        //Ajax call here
-
-      })
       
-
-
     })
   
-  
+    $("#signin-Login").on("click", function(){
+      event.preventDefault()
+      let userId = $("#userID-Login").val()
+      let pwd = $("#pwd-Login").val()
+      console.log("Am here")
+      //Ajax call here
+      $.ajax({
+        // url: location.hostname + "/api/auth/signin",
+        url: "http://localhost:8000/api/auth/signin",
+        method: "GET",
+        data: {
+              "email": userId,
+              "password": pwd,
+            },
+        success: (response) =>{
+          console.log("my response", response);
+          //hide login button
+          $(".login-button").text("lOGGED IN AS STUDENT")
+
+        }
+      });
+
+    })
 
 
 
@@ -103,12 +115,12 @@ $(".filter-simple-button").click(function() {
 
   //Function to create verify password
   pwd_create.onfocus = function() {
-    document.getElementById("messagePwd").style.display = "block";
+    document.getElementById("#messagePwd").style.display = "block";
   }
   
   // When the user clicks outside of the password field, hide the message box
   pwd_create.onblur = function() {
-    document.getElementById("messagePwd").style.display = "none";
+    document.getElementById("#messagePwd").style.display = "none";
   }
   
   // When the user starts to type something inside the password field
@@ -166,5 +178,5 @@ $(".filter-simple-button").click(function() {
   }
 
 
-  module.exports = User
+  
   
