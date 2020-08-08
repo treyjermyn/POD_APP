@@ -173,7 +173,7 @@ exports.addLesson = (req, res) => {
     //using Course model to save information
   db.Lesson.create({
     name: req.body.lesson_name.toUpperCase(),
-    url: req.body.subject.toUpperCase(),
+    url: req.body.url.toUpperCase(),
     CourseId: req.body.course_id,
   })
   .then( () => {
