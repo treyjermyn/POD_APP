@@ -36,7 +36,7 @@
             <li><a href="../index.html">Home</a></li>
           <li><a href="instructors.html">Instructors</a></li>
           <li><a href="students.html">Students</a></li>
-          <li><a href="#">Account</a></li>
+          <!-- <li><a href="#">Account</a></li> -->
           <li>
             <button type="button" a href="#" class="button login-button hollow topbar-responsive-button" data-open="login-Modal">Login</button>
           </li>
@@ -51,7 +51,7 @@
             <h1 id="course-name">Instructors | {Course Name} Lessons</h1>
             <p class="subheader">View and manage course lessons & content.</p>
             <a href="instructor-courses.html"><button class="button large hero-button">Back to Courses</button></a>
-            <!-- <a href="instructors.html"><button class="button large hero-button">Back to Portal</button></a> -->
+            <a href="#"><button class="button large hero-button" data-open="lesson-Modal">Add New Lesson</button></a>
         </div>
     </div>
 
@@ -120,19 +120,20 @@
     </div>
   </div>
 
-    <!-- Add New Course Modal -->
-<div class = "reveal" id="course-Modal" data-reveal>
+    <!-- Add New Lesson Modal -->
+<div class = "reveal" id="lesson-Modal" data-reveal>
     <div class="course-box">
       <div class="row collapse expanded">
         <div class="small-12 medium-6 column small-order-2 medium-order-1">
           <div class="course-modal-form-section">
-            <h1 class="course-modal-title">Add New Course</h1>
-            <input class="course-modal-input" type="text" name="coursename" placeholder="Course Name"/>
-            <div>
-                <input class="course-modal-input" type="checkbox" name="mathcheckbox" placeholder="Mathematics"/>
+            <h1 class="course-modal-title">Add New Lesson</h1>
+            <input class="course-modal-input lesson-name" type="text" name="lessonname" placeholder="Lesson Name"/>
+            <input class="course-modal-input lesson-url" type="text" name="lessonurl" placeholder="Lesson URL"/>
+            <!-- <div>
+                <input class="course-modal-input" type="text" name="lessonname" placeholder="Lesson Name"/>
                 <label>Mathematics</label>
-            </div>
-            <div>
+            </div> -->
+            <!-- <div>
                 <input class="course-modal-input" type="checkbox" name="mathcheckbox" placeholder="Science"/>
                 <label>Science</label>
             </div>
@@ -143,8 +144,8 @@
             <div>
                 <input class="course-modal-input" type="checkbox" name="mathcheckbox" placeholder="Language Arts"/>
                 <label>Language Arts</label>
-            </div>
-            <input class="course-modal-submit-button button medium" type="submit" name="new_course_submit" value="Add Course"/>
+            </div> -->
+            <input class="course-modal-submit-button button medium" type="submit" name="new_lesson_submit" value="Add Lesson"/>
           </div>
         </div>
       </div>
@@ -190,7 +191,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="html/instructors.html">Instructors</a></li>
                 <li><a href="html/students.html">Students</a></li>
-                <li><a href="#">Account</a></li>
+                <!-- <li><a href="#">Account</a></li> -->
                 <li><a href="#" data-open="contact-Modal">Contact Us</a></li>
             </ul>
             </div>
