@@ -44,7 +44,7 @@ require("./routes/user_router.js")(app); //student and instructor portals
 // =============================================================
 db.sequelize.sync({ force: true })
   .then(() => {
-    sequelize_fixtures.loadFile("./db/fixtures/user_roles_fixtures.js", db)
+    sequelize_fixtures.loadFile("./db/fixtures/*", db)
       .then(() => {
         console.log("===== DB Seeded Properly =====");
         app.listen(PORT, () => {
@@ -54,3 +54,4 @@ db.sequelize.sync({ force: true })
         });
       });
   }); 
+
