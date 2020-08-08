@@ -163,5 +163,33 @@ exports.getLessonsByCourse = (req, res) => {
 
 //ADDING LESSON
 exports.addLesson = (req, res) => {
-
+    console.log(
+        `${
+          process.env.APP_ENV === "development"
+            ? "===== Adding New Course Lesson ====="
+            : ""
+        }`
+      );
+    //using Course model to save information
+  db.Lesson.create({
+    name: req.body.lesson_name.toUpperCase(),
+    url: req.body.subject.toUpperCase(),
+    CourseId: req.body.course_id,
+  })
+  .then( () => {
+        db.Lesson.findAll({
+            where: {
+                CourseId: req.body.course_id
+            }
+        })
+        .then( (lessons) => {
+            if(lessons){
+            res.status(200).json({
+            "data": lessons,
+        })}
+        } )
+        .catch((err) => {
+        res.status(500).send(`Error Retrieving Lesson information -> ${err}`);
+    });
+  })
 }

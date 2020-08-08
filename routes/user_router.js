@@ -33,6 +33,9 @@ module.exports = (app) => {
     //Instructor Course update route
     app.post("/api/user/instructor/courses/update", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.updCourse);
     
-    //Instructor Lessons route
+    //Instructor Read Lessons route
     app.get("/api/user/instructor/lessons", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.getLessonsByCourse);
+
+    //Instructor Create Lessons route
+    app.post("/api/user/instructor/lessons", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.addLesson);
 }
