@@ -53,7 +53,7 @@ $(".filter-simple-button").click(function() {
       $.ajax({
         // url: location.hostname + "/api/auth/signin",
         url: "http://localhost:8000/api/auth/signin",
-        method: "GET",
+        method: "POST",
         data: {
               "email": userId,
               "password": pwd,
