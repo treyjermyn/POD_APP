@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     //defining fields for Course model
     course_name: {
       type: DataTypes.STRING,
+      unique: true,
       allowNull: false,
     },
     subject: {

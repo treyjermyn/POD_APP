@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     completedAt: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
   });
 
