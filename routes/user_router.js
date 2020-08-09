@@ -7,6 +7,12 @@ const userController = require("../controllers/user_controller");
 module.exports = (app) => {
     //defining default header properties for responses
     //including x-access-token and origin for CORS
+   
+    //importing user controller for redirection
+    const userController = require("../controllers/user_controller");
+    const instructorController = require("../controllers/instructor_controller");
+    const studentController = require("../controllers/student_controller");
+
     app.use((req, res, next) => {
         res.header(
             "Access-Control-Allow-Headers", "x-access-token, Origin, Content-Type, Accept"
@@ -16,6 +22,17 @@ module.exports = (app) => {
     //Student Route
     app.get("/api/user/student", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isStudent], userController.studentPortal);
 
+    app.get("/api/user/student", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isStudent], studentController.studentPortal);
+    
     //Intructor Route
     app.get("/api/user/instructor", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], userController.instructorPortal);
+
+    //Instructor course list
+    app.get("/api/user/instructor/courses", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.instructorCourses);
+
+    //Instructor Course creation route
+    app.post("/api/user/instructor/courses", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.addCourse);
+
+    //Instructor Course update route
+    app.post("/api/user/instructor/courses/update", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.updCourse);
 }
