@@ -28,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 0,
       allowNull: false,
     },
+    
   });
 
   //associations

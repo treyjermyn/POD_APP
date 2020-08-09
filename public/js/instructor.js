@@ -1,22 +1,6 @@
 $(document).foundation()
-// import(User)
 // const handlebars = require("express-handlebars");
-// const User = require("./app");
-
-// //Instructor class declaration
-// class Instructor extends User {
-//     constructor(fname, lname, email, role, classes){
-//       super(fname, lname, email)
-//       this.classes = []
-//       this.role = "Instructor"
-//     }
-//     get role (){
-//       return this.role
-//     }
-//     get classes (Array){
-//       return this.classes = Array;
-//     }
-// }
+// const db = require("../models/index");
 
 // closes the panel on click outside
 $(document).mouseup(function (e) {
@@ -35,32 +19,30 @@ $(document).mouseup(function (e) {
     $(this).toggleClass('is-active');
   });
 
-    
-
     // first create a Student Roster TABLE structure by adding few headers.
-    function createTable() {
-        let headerArray = ['First Name', 'Last Name', 'Email Address', '']; // table headers.
-        let emptyTable = $('<thead>');
-        emptyTable.attr('id', 'emptyTable');  // table id.
-        emptyTable.attr('class', 'responsive-card-table unstriped');  // table class.
+    // function createTable() {
+    //     let headerArray = ['First Name', 'Last Name', 'Email Address', '']; // table headers.
+    //     let emptyTable = $('<thead>');
+    //     emptyTable.attr('id', 'emptyTable');  // table id.
+    //     emptyTable.attr('class', 'responsive-card-table unstriped');  // table class.
 
-        let tBody = $("<tbody>")
-        let tr = $("<tr>");
+    //     let tBody = $("<tbody>")
+    //     let tr = $("<tr>");
 
-        for (let i = 0; i < headerArray.length; i++) {
-            let th = $('<th>'); // the header object.
-            th.attr('id', 'table-header')
+    //     for (let i = 0; i < headerArray.length; i++) {
+    //         let th = $('<th>'); // the header object.
+    //         th.attr('id', 'table-header')
             
-            th.text(headerArray[i]);
-            tr.append(th);
-        }
-        tBody.append(tr);
-        emptyTable.append(tr);
+    //         th.text(headerArray[i]);
+    //         tr.append(th);
+    //     }
+    //     tBody.append(tr);
+    //     emptyTable.append(tBody);
 
-        let div = $('.table-expand');
-        div.append(emptyTable);    // add table to a container.
-    }
-    createTable();
+    //     let div = $('.table-expand');
+    //     div.append(emptyTable);    // add table to a container.
+    // }
+    // createTable();
 
     // function to add new row.
     function addRow() {
@@ -77,14 +59,6 @@ $(document).mouseup(function (e) {
         };
 
         for (let c = 0; c < headerArray.length; c++) {
-            let firstName = $('<td>').addClass("first-name");          // TABLE DEFINITION.
-            firstName.text(newStudent.firstName);
-            
-            var lastName = $('<td>').addClass("last-name");          // TABLE DEFINITION.
-            lastName.text(newStudent.lastName);
-            
-            var email = $('<td>').addClass("email");          // TABLE DEFINITION.
-            email.text(newStudent.email);
 
             if (c == 3) {   // if its the 3rd column of the table.
                 // add a button control.
@@ -99,13 +73,28 @@ $(document).mouseup(function (e) {
 
                 td.append(button);
             }
-            else {
-                // the 1st, 2nd and 3rd column will have textbox.
-                var ele = $('<input>');
-                ele.attr('type', 'text');
-                ele.attr('value', '');
-
-                td.append(ele);
+            else if (c == 0) {
+              let firstName = $('<td>').addClass("first-name");          // TABLE DEFINITION.
+              firstName.text(newStudent.firstName);
+              var ele = $('<input>');
+              ele.attr('type', 'text');
+              ele.attr('value', '');
+              firstName.append(ele);
+            }
+            else if (c == 1) {
+              var lastName = $('<td>').addClass("last-name");          // TABLE DEFINITION.
+              lastName.text(newStudent.lastName);
+              var ele = $('<input>');
+              ele.attr('type', 'text');
+              ele.attr('value', '');
+              lastName.append(ele);
+            }
+            else if (c == 2) {
+              var email = $('<td>').addClass("email");          // TABLE DEFINITION.
+              email.text(newStudent.email);
+              ele.attr('type', 'text');
+              ele.attr('value', '');
+              email.append(ele);
             }
         }
     }
@@ -136,8 +125,32 @@ $(document).mouseup(function (e) {
         console.log(arrValues);
   }
     
-  
    // function to create new table row entry with add student button click
-   $(".student-modal-submit-button").on("click", function () {
-      newStudent();
+   $(".student-modal-submit-button").on("click", function (e) {
+     e.preventDefault();
+      // addRow();
+      let newStudent = {
+        firstName: $(".student-first-name").val(),
+        lastName: $(".student-last-name").val(),
+        email: $(".student-email").val()
+      };
+    console.log("you got clicked!", newStudent)
+
+    //ajax call to route on the backend that saves new student to the DB!!
+
   });
+
+  //function to inject course name via Handlebars template
+  // let source = $("#course-name-template").html();
+  // let template = Handlebars.compile(source);
+  // let context = {
+  //   name: db.Course.course_name
+  // }
+  // let courseName = templateScript(context);
+  // $(source).append(courseName);
+
+  //function to add new course on "Add New Course" onclick
+  $(".new-course").on("click", function (){
+      
+  });
+

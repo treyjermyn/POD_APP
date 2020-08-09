@@ -79,14 +79,10 @@ $(".filter-simple-button").click(function() {
 
           }
           //hide login button
-          
-
         }
       });
 
     })
-
-
 
   //function to register new account
   $("#register-form")
@@ -125,11 +121,6 @@ $(".filter-simple-button").click(function() {
         }
       });
     })
-  
-
-
-  
-
 
   //Function to create verify password
   pwd_create.onfocus = function() {
@@ -183,17 +174,12 @@ $(".filter-simple-button").click(function() {
     }
   }
   
-
-
   //function to validate email
   function emailIsValid (email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
   }
 
-  //function to create new student roster entry
-  function newStudent() {
 
-  }
 
 
   
