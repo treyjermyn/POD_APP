@@ -37,15 +37,15 @@ exports.Users_Courses = (req, res) => {
     });
 }
 
-// //STUDENT ASSINGED LESSONS
+//STUDENT ASSINGED LESSONS
 
-// exports.Users_Lessons = (req, res) => {
-//     console.log(
-//         `${
-//           process.env.APP_ENV === "development"
-//             ? "===== Returning User Lessons ====="
-//             : ""
-//         }`
-//       );
-// }
+exports.Users_Lessons = (req, res) => {
+    console.log(
+        `${
+          process.env.APP_ENV === "development"
+            ? "===== Returning User Lessons ====="
+            : ""
+        }`
+      );
+}
 

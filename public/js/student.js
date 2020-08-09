@@ -1,22 +1,10 @@
-const User = require("./app");
-const { fn } = require("sequelize");
+
+
+//const { fn } = require("sequelize");
 
 // closes the panel on click outside
 $(document).foundation()
 
-//importing classes
-import(User)
-
-class Student extends User{
-    constructor(fname, lname, email, role){
-      super(fname, lname, email)
-      this.role = "student"
-    }
-
-    get role(){
-      return this.role
-    }
-}
 
 
 // closes the panel on click outside
@@ -28,7 +16,35 @@ $(document).mouseup(function (e) {
         container.removeClass('is-active');
       }
 });
-  
-  
+
+
+
+
+//Target login button after student is checked in
+let user = localStorage.getItem("User")
+$("#LoginStu").text("Logged in:" + user)
+$("#LoginStu").css("color","green")
+$("#LoginStu").hover(function(){
+  $("#LoginStu").addClass("hide")
+  $("#LogoutStu").removeClass("hide")
+
+},
+  function(){
+    $("#LogoutStu").addClass("hide")
+    $("#LoginStu").removeClass("hide")
+
+  }
+)
+
+
+//funtion to log out
+$("#LogoutStu").on("click", function(){
+  window.location.href = "/";
+  localStorage.clear()
+
+})
+
+
+
   
   

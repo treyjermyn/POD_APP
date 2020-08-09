@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs"); //to enconde password sent by user and compa
 //calling in models and jwt secret to verify if sign in information already exists
 const db = require("../models/index");
 const config = require("../config/config.json"); // only in case there is no .env defined with SECRET
+const nodemailer = require("nodemailer"); //pkg for sending registration email
 const User = db.User;
 const Role = db.Role;
 const SECRET = process.env.SECRET || config.development.secret;
@@ -41,33 +42,54 @@ exports.signup = (req, res) => {
         },
       })
         .then((roles) => {
-          user.setRoles(roles).then(() => {
-            res.status(200).send("User registered successfully!");
-            //TODO: Send registration email.
-            // const msg = {
-            //   from: 'noreply@gmail.com',
-            //   to: user.email,
-            //   subject: 'POD Learning - Email Verification',
-            //   text: `
-            //     Thank you for registering at POD Learning!
-            //     Copy and Paste the address below to verify your account.
-            //     http://${req.headers.host}/verfiy-email?token=${user.email}
-            //   `,
-            //   html: `
-            //     <h1>Hello,<h1>
-            //     <p>Thank you for registering at POD Learning!<p>
-            //     <p>Copy and Paste the address below to verify your account.<p>
-            //     <a href=" http://${req.headers.host}/verfiy-email?token=${user.email}">Verify your account</a>
-            //   `
-            // }
-            // try {
-            //   await sendGrid.send(msg);
-            //   req.flash('success', 'Thanks for registering. Please check your email to verify your account')
-            //   req.redirect('/')
-            // } catch(error) {
-            //   console.log(error);
-            //   req.flash('error', 'Something went wrong')
-            // }
+          user.setRoles(roles).then( () => {
+            //Send registration email.
+            //output string html
+            const emailHtml = `
+            <h3>Hello, ${req.body.first_name.toUpperCase()}</h3>
+            <p>One of your Instructors has created an account for our E-Learning App: POD.</p>
+            <p>Below you can find your account details:</p>
+            <ul>
+              <li>Email: ${req.body.email}</li>
+              <li>Password: ${req.body.password}</li>
+            </ul>
+            <p>Link to the Learning App: <a href="http://localhost:8000"></a></p>
+            <h4>Happy Learning!</h4>
+            <p>POD Learning App Support Team</p>
+            `;
+            //NODE MAILER SECTION
+            //===========================
+            // create reusable transporter object using the SMTP transport
+            let transporter = nodemailer.createTransport({
+              host: "gator4144.hostgator.com",
+              port: 465,
+              secure: true, 
+              auth: {
+                user: "test@nxtlevelbeauty.com", // user
+                pass: process.env.EMAIL_PASS || config.development.secret, // password
+              },
+              tls: {
+                rejectUnauthorized: false
+              }
+            });
+
+            //setup email data
+            let mailOptions = {
+              from: '"POD E-Learning" <test@nxtlevelbeauty.com>', // sender address
+              to: req.body.email, // list of receivers
+              subject: "Welcome to POD E-Learning", // Subject line
+              text: "Welcome to POD E-Learning", // plain text body
+              html: emailHtml, // html body
+            };
+
+            // send mail with defined transport object
+            transporter.sendMail(mailOptions, (error, info) => {
+              if(error) return console.log(error);
+              console.log("Message sent: %s", info.messageId);
+              // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+              res.status(200).send("User registered successfully!");
+            });
+            //===========================
           });
         })
         .catch((err) => {
@@ -120,7 +142,7 @@ exports.signin = (req, res) => {
       });
       //getting user role
       user.getRoles().then((role) => {
-        res.status(200).send({ auth: true, role: role[0].name, accessToken: jwToken });
+        res.status(200).send({ auth: true, role: role[0].name, fname: user.first_name, accessToken: jwToken });
       })
       .catch( (err) => {
         res.status(500).send("Error Verifying Role -> " + err);

@@ -53,15 +53,36 @@ $(".filter-simple-button").click(function() {
       $.ajax({
         // url: location.hostname + "/api/auth/signin",
         url: "http://localhost:8000/api/auth/signin",
-        method: "GET",
+        method: "POST",
         data: {
               "email": userId,
               "password": pwd,
             },
         success: (response) =>{
           console.log("my response", response);
+          if (response.auth){
+            let user_Name = response.fname;
+            let token = response.accessToken;
+            let role = response.role;
+            localStorage.setItem("User", user_Name)
+            console.log(user_Name)
+            console.log(token)
+            console.log(role)
+            localStorage.setItem("Token", token)
+            localStorage.setItem("Role", role)
+            if (role === "STUDENT"){
+              window.location.replace(window.location.href +"html/students.html");
+              //$(".login-button").text("Student logged in:" + user_Name)
+
+            } else {
+              window.location.replace(window.location.href +"html/instructors.html");
+              //$(".login-button").text("Instructor logged in:" + user_Name)
+
+            }
+
+          }
           //hide login button
-          $(".login-button").text("lOGGED IN AS STUDENT")
+          
 
         }
       });
@@ -107,13 +128,47 @@ $(".filter-simple-button").click(function() {
         }
       });
     })
+
+    
+
+    validateLogin()
+    function validateLogin(){
+      let token = localStorage.getItem("Token")
+      if (location.pathname !== '/' && !token){
+        window.location.href = "/";
+
+      }
+        
+
+    }
+
+
+    //Function to authenticate Token
+    function authToken(str){
+      $.ajax({
+        // url: location.hostname + "/api/auth/signup",
+        url: "http://localhost:8000/api/auth/token",
+        method: "POST",
+        data: {
+              "token": str,
+            },
+        success: (response) =>{
+          if (response.auth){
+            return true
+          } else {
+            return false
+
+          }
+        }
+      });
+    }
   
 
 
   
 
 
-  //Function to create verify password
+  /*Function to create verify password
   pwd_create.onfocus = function() {
     document.getElementById("#messagePwd").style.display = "block";
   }
@@ -163,7 +218,7 @@ $(".filter-simple-button").click(function() {
       length.classList.remove("valid");
       length.classList.add("invalid");
     }
-  }
+  }*/
   
 
 
@@ -177,6 +232,7 @@ $(".filter-simple-button").click(function() {
 
   }
 
+  
 
   
   

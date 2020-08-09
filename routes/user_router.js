@@ -2,6 +2,7 @@
 const JwtTokenValidator = require("../middlewares/fnVerifyJwtToken");
 //importing user controller for redirection
 const userController = require("../controllers/user_controller");
+const path = require('path')
 
 //router definition.
 module.exports = (app) => {
@@ -20,7 +21,7 @@ module.exports = (app) => {
         next();
     });
     //Student Route
-    app.get("/api/user/student", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isStudent], userController.studentPortal);
+    app.get("/api/user/student", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isStudent], userController.studentPortal)
 
     app.get("/api/user/student", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isStudent], studentController.studentPortal);
     
@@ -35,4 +36,20 @@ module.exports = (app) => {
 
     //Instructor Course update route
     app.post("/api/user/instructor/courses/update", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.updCourse);
+
+    //route to update lesson
+    app.post("/api/user/instructor/lessons/update", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.updCourse)
+
+    //route to delete course
+    app.delete("/api/user/instructor/courses/delete", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.deleteCrs)
+
+    //route to delete lesson
+    app.delete("/api/user/instructor/lessons/delete", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.deleteLsn)
+
+    
+    //Instructor Read Lessons route
+    app.get("/api/user/instructor/lessons", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.getLessonsByCourse);
+
+    //Instructor Create Lessons route
+    app.post("/api/user/instructor/lessons", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.addLesson);
 }
