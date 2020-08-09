@@ -1,7 +1,7 @@
-// const bcrypt = require('bcryptjs');
-// const jwt = require('jsonwebtoken');
-// const crypto = require('crypto');
-// const { Sequelize } = require('sequelize');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
+const { Sequelize } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define("User", {

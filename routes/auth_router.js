@@ -1,7 +1,7 @@
 //Importing helping functions from utils
 //===========================================
-const VerifySignUp = require("../utils/fnVerifySignUp");
-const JwtTokenValidator = require("../utils/fnVerifyJwtToken");
+const VerifySignUp = require("../middlewares/fnVerifySignUp");
+const JwtTokenValidator = require("../middlewares/fnVerifyJwtToken");
 const Password = require("../controllers/password")
 const validate = require('../middleware/validate');
 const {check} = require('express-validator');
