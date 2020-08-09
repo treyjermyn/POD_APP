@@ -41,7 +41,7 @@ module.exports = (app) => {
     app.delete("/api/user/instructor/courses/delete", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.deleteCrs)
 
     //route to delete lesson
-    app.delete("/api/user.instructor/lessons/delete", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.deleteLsn)
+    app.delete("/api/user/instructor/lessons/delete", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.deleteLsn)
 
     
     //Instructor Read Lessons route
