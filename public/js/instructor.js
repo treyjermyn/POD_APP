@@ -140,17 +140,26 @@ $(document).mouseup(function (e) {
 
   });
 
-  //function to inject course name via Handlebars template
-  // let source = $("#course-name-template").html();
-  // let template = Handlebars.compile(source);
-  // let context = {
-  //   name: db.Course.course_name
-  // }
-  // let courseName = templateScript(context);
-  // $(source).append(courseName);
+  //Target login button after student is checked in
+    let user = localStorage.getItem("User")
+    $("#LoginIns").text("Logged in:" + user)
+    $("#LoginIns").css("color","green")
+    $("#LoginIns").hover(function(){
+        $("#LoginIns").addClass("hide")
+        $("#LogoutIns").removeClass("hide")
 
-  //function to add new course on "Add New Course" onclick
-  $(".new-course").on("click", function (){
-      
-  });
+},
+    function(){
+        $("#LogoutIns").addClass("hide")
+        $("#LoginIns").removeClass("hide")
 
+  }
+)
+
+
+//funtion to log out
+$("#LogoutIns").on("click", function(){
+  window.location.href = "/";
+  localStorage.clear()
+
+})
