@@ -1,37 +1,15 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POD | E-Learning</title>
-    <script src="../js/vendor/jquery.js"></script>
-    <script src="https://kit.fontawesome.com/d22ca23eb9.js" crossorigin="anonymous"></script>
-    
-    <!-- foundation CDN script -->
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-    
-    <!-- Foundation Compressed CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    
-    <!-- custom stylesheets -->
-    <link rel="stylesheet" type="text/css" href="../css/foundation.css">
-    <!-- <link rel="stylesheet" type="text/css" href="/public/css/foundation.min.css"> -->
-   <link rel="stylesheet" type="text/css" href="../css/app.css">
-  </head>
-
 <body>
   <!-- Nav bar -->
   <nav class="top-bar topbar-responsive">
     <div class="top-bar-title">
-      <a class="topbar-responsive-logo" href="../index.html"><strong>POD | E-Learning</strong></a>
+      <a class="topbar-responsive-logo" href="/"><strong>POD | E-Learning</strong></a>
     </div>
     <div id="topbar-responsive" class="topbar-responsive-links">
       <div class="top-bar-right">
         <ul class="menu simple vertical medium-horizontal">
-            <li><a href="../index.html">Home</a></li>
-          <li><a href="instructors.html">Instructors</a></li>
-          <li><a href="students.html">Students</a></li>
+            <li><a href="/">Home</a></li>
+          <li><a href="instructors">Instructors</a></li>
+          <li><a href="students">Students</a></li>
           <!-- <li><a href="#">Account</a></li> -->
           <li>
             <button type="button" a href="#" class="button login-button hollow topbar-responsive-button" data-open="login-Modal">Login</button>
@@ -47,16 +25,28 @@
             <h1>Student Roster</h1>
             <p class="subheader">View and management student enrollment.</p>
             <a href="#"><button class="button large hero-button" data-open="student-Modal" id="add_Student">Add New Student</button></a>
-            <a href="instructors.html"><button class="button large hero-button">Back to Portal</button></a>
+            <a href="instructors"><button class="button large hero-button">Back to Portal</button></a>
 
         </div>
     </div>
 
     <!-- student roster content -->
-    <div class="table-expand"></div>
+    <div class="table-expand">
+      <table class="table-expand">
+        <thead>
+          <tr class="table-expand-row">
+            <th width="200">First Name</th>
+            <th width="200">Last Name</th>
+            <th width="300">Email Address</th>
+            <th width="100"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{!-- {{#each }} --}}
+        </tbody>
+        </table>
+    </div>
     
-    
-
     <!-- Login Modal -->
   <div class = "reveal" id="login-Modal" data-reveal>
       <div class="login-box">
@@ -128,9 +118,9 @@
             </div>
             <div class="column">
             <ul class="menu marketing-site-footer-bottom-links footer-copy">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="html/instructors.html">Instructors</a></li>
-                <li><a href="html/students.html">Students</a></li>
+                <li><a href="index">Home</a></li>
+                <li><a href="instructors">Instructors</a></li>
+                <li><a href="students">Students</a></li>
                 <!-- <li><a href="#">Account</a></li> -->
                 <li><a href="#" data-open="contact-Modal">Contact Us</a></li>
             </ul>
@@ -144,4 +134,3 @@
   <script src="../js/app.js"></script>
   <script src="../js/instructor.js"></script>
 </body>
-</html>
