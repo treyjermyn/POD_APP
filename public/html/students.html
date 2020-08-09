@@ -36,7 +36,7 @@
           <li><a href="../index.html">Home</a></li>
           <li><a href="instructors.html">Instructors</a></li>
           <li><a href="students.html">Students</a></li>
-          <li><a href="#">Account</a></li>
+          <!-- <li><a href="#">Account</a></li> -->
           <li>
             <button type="button" a href="#" class="button login-button hollow topbar-responsive-button" data-open="login-Modal">Login</button>
           </li>
@@ -51,42 +51,49 @@
       <div class="hero-content-section">
         <h1>Student Portal</h1>
         <p class="subheader">Manage your courses and lessons all in one place!</p>
-        <a href="#courses-row"><button class="button large hero-button">Courses</button></a>
+        <a href="#courses-block"><button class="button large hero-button">Courses</button></a>
         <a href="lessons.html"><button class="button large hero-button">Lessons</button></a>
       </div>
     </div>
   </div>
 
   <!-- student courses -->
-  <section>
-    <div class="row courses-row" id="courses-row">
-          <div class="basic-card small-4 columns">
-              <div class="basic-card-image">
-                  <img src="https://placeimg.com/640/480/animals" a href="#">
-              </div>
-              <div class="basic-card-content content callout secondary">
-                  <h5>Calculus</h5>
-                  <p>Fall Semester 11th Grade Calculus</p>
-              </div>
-          </div>
-          <div class="basic-card small-4 columns">
-              <div class="basic-card-image">
-                  <img src="https://placeimg.com/640/480/animals" a href="#">
-              </div>
-              <div class="basic-card-content content callout secondary">
-                  <h5>AP Physics</h5>
-                  <p>Fall Semester 11th Grade AP Physics</p>
-              </div>
-          </div>
-          <div class="basic-card small-4 columns">
-              <div class="basic-card-image">
-                  <img src="https://placeimg.com/640/480/animals" a href="#">
-              </div>
-              <div class="basic-card-content content callout secondary">
-                  <h5>AP History</h5>
-                  <p>Fall Semester 11h Grade AP History</p>
-              </div>
-          </div>
+  <section class="filter-simple lessons-row">
+    <div class="button-group round">
+      <button class="button hollow filter-simple-button is-active" data-filter="all">All</button>
+      <button class="button hollow filter-simple-button" data-filter="current">Current</button>
+      <button class="button hollow filter-simple-button" data-filter="past">Past</button>
+      <button class="button hollow filter-simple-button" data-filter="future">Future</button>
+    </div>
+  
+    <div class="row small-up-2 medium-up-3 courses-block">
+      <div class="column column-block filter-simple-item current">
+        <a href="course.html"><img src="https://spaceholder.cc/350x350" alt=""/></a>
+      </div>
+      <div class="column column-block filter-simple-item past">
+        <a href="course.html"><img src="https://placeimg.com/350/350/animals" alt=""/></a>
+      </div>
+      <div class="column column-block filter-simple-item past">
+        <a href="course.html"><img src="https://placeimg.com/350/350/animals" alt=""/></a>
+      </div>
+      <div class="column column-block filter-simple-item past">
+        <a href="course.html"><img src="https://placeimg.com/350/350/animals" alt=""/></a>
+      </div>
+      <div class="column column-block filter-simple-item future">
+        <a href="course.html"><img src="https://placeimg.com/350/350/nature" alt=""/></a>
+      </div>
+      <div class="column column-block filter-simple-item future">
+        <a href="course.html"><img src="https://placeimg.com/350/350/nature" alt=""/></a>
+      </div>
+      <div class="column column-block filter-simple-item future">
+        <a href="course.html"><img src="https://placeimg.com/350/350/nature" alt=""/></a>
+      </div>
+      <div class="column column-block filter-simple-item current">
+        <a href="course.html"><img src="https://spaceholder.cc/350x350" alt=""/></a>
+      </div>
+      <div class="column column-block filter-simple-item current">
+        <a href="course.html"><img src="https://spaceholder.cc/350x350" alt=""/></a>
+      </div>
     </div>
 </section>
 
@@ -173,7 +180,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="html/instructors.html">Instructors</a></li>
           <li><a href="html/students.html">Students</a></li>
-          <li><a href="#">Account</a></li>
+          <!-- <li><a href="#">Account</a></li> -->
           <li><a href="#" data-open="contact-Modal">Contact Us</a></li>
         </ul>
       </div>

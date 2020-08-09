@@ -43,4 +43,10 @@ module.exports = (app) => {
     //route to delete lesson
     app.delete("/api/user.instructor/lessons/delete", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.deleteLsn)
 
+    
+    //Instructor Read Lessons route
+    app.get("/api/user/instructor/lessons", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.getLessonsByCourse);
+
+    //Instructor Create Lessons route
+    app.post("/api/user/instructor/lessons", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.addLesson);
 }

@@ -227,3 +227,62 @@ exports.updLesson = (req, res) => {
       res.status(500).send(`Error Deleting user -> ${err}`)
     })
   }
+
+//GETTING LESSONS
+exports.getLessonsByCourse = (req, res) => {
+    console.log(
+        `${
+          process.env.APP_ENV === "development"
+            ? "===== Getting Lessons by Course Name ====="
+            : ""
+        }`
+      );
+
+      db.Lesson.findAll({
+          where: {
+              CourseId: req.body.course_id
+          }
+      })
+      .then( (lessons) => {
+          if(lessons){
+            res.status(200).json({
+            "data": lessons,
+        })}
+      } )
+      .catch((err) => {
+        res.status(500).send(`Error Retrieving Lesson information -> ${err}`);
+    });
+}
+
+//ADDING LESSON
+exports.addLesson = (req, res) => {
+    console.log(
+        `${
+          process.env.APP_ENV === "development"
+            ? "===== Adding New Course Lesson ====="
+            : ""
+        }`
+      );
+    //using Course model to save information
+  db.Lesson.create({
+    name: req.body.lesson_name.toUpperCase(),
+    url: req.body.url.toUpperCase(),
+    CourseId: req.body.course_id,
+  })
+  .then( () => {
+        db.Lesson.findAll({
+            where: {
+                CourseId: req.body.course_id
+            }
+        })
+        .then( (lessons) => {
+            if(lessons){
+            res.status(200).json({
+            "data": lessons,
+        })}
+        } )
+        .catch((err) => {
+        res.status(500).send(`Error Retrieving Lesson information -> ${err}`);
+    });
+  })
+}

@@ -141,3 +141,27 @@ $(document).mouseup(function (e) {
    $(".student-modal-submit-button").on("click", function () {
       newStudent();
   });
+
+  //Target login button after student is checked in
+    let user = localStorage.getItem("User")
+    $("#LoginIns").text("Logged in:" + user)
+    $("#LoginIns").css("color","green")
+    $("#LoginIns").hover(function(){
+        $("#LoginIns").addClass("hide")
+        $("#LogoutIns").removeClass("hide")
+
+},
+    function(){
+        $("#LogoutIns").addClass("hide")
+        $("#LoginIns").removeClass("hide")
+
+  }
+)
+
+
+//funtion to log out
+$("#LogoutIns").on("click", function(){
+  window.location.href = "/";
+  localStorage.clear()
+
+})

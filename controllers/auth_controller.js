@@ -94,7 +94,7 @@ exports.signin = (req, res) => {
       });
       //getting user role
       user.getRoles().then((role) => {
-        res.status(200).send({ auth: true, role: role[0].name, accessToken: jwToken });
+        res.status(200).send({ auth: true, role: role[0].name, fname: user.first_name, accessToken: jwToken });
       })
       .catch( (err) => {
         res.status(500).send("Error Verifying Role -> " + err);
