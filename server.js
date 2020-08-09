@@ -26,7 +26,7 @@ const PORT = process.env.PORT || 8000;
 
 // Requiring models for syncing
 // =============================================================
-const db = require("./models");
+const db = require("./models/");
 
 //setting data parsing middlewares --JSON-- with Express
 app.use(express.urlencoded({ extended: true }));
@@ -34,6 +34,7 @@ app.use(express.json()); //request body parser
 
 //Setting static directory = public
 app.use(express.static("public"));
+// view engine setup
 
 // Routes
 // =============================================================

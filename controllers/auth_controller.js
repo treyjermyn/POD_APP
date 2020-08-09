@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs"); //to enconde password sent by user and compa
 //calling in models and jwt secret to verify if sign in information already exists
 const db = require("../models/index");
 const config = require("../config/config.json"); // only in case there is no .env defined with SECRET
-const User = db.User;
+const User = db.User
 const Role = db.Role;
 const SECRET = process.env.SECRET || config.development.secret;
 //calling symbol based operators from Sequelize
