@@ -79,7 +79,7 @@ exports.signup = (req, res) => {
               text: "Welcome to POD E-Learning", // plain text body
               html: emailHtml, // html body
             };
-            
+
             // send mail with defined transport object
             transporter.sendMail(mailOptions, (error, info) => {
               if(error) return console.log(error);
