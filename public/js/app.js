@@ -65,15 +65,18 @@ $(".filter-simple-button").click(function() {
             let token = response.token;
             let role = response.role;
             localStorage.setItem("User", user_Name)
+            console.log(user_Name)
+            console.log(token)
+            console.log(role)
             localStorage.setItem("Token", token)
             localStorage.setItem("Role", role)
             if (role === "STUDENT"){
-              window.location.replace(window.location.href + "html/students.html");
-              $(".login-button").text("Student logged in:" + user_Name)
+              window.location.replace(window.location.href +"html/students.html");
+              //$(".login-button").text("Student logged in:" + user_Name)
 
             } else {
               window.location.replace(window.location.href +"html/instructors.html");
-              $(".login-button").text("Instructor logged in:" + user_Name)
+              //$(".login-button").text("Instructor logged in:" + user_Name)
 
             }
 
