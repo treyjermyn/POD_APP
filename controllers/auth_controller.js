@@ -1,6 +1,7 @@
 //Verify SignIn & Role verification Middleware functions
 //====================================
 const jwt = require("jsonwebtoken");
+
 const bcrypt = require("bcryptjs"); //to enconde password sent by user and compare with value in DB
 //calling in models and jwt secret to verify if sign in information already exists
 const db = require("../models/index");
@@ -30,8 +31,7 @@ exports.signup = (req, res) => {
     last_name: req.body.last_name.toUpperCase(),
     email: req.body.email.toUpperCase(),
     password: bcrypt.hashSync(req.body.password, 10),
-    emailToken: crypto.randomBytes(64).toString('hex'),
-    isVerified: false,
+    confirmed: false,
   })
     .then((user) => {
       Role.findAll({
