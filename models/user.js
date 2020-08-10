@@ -1,4 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
+
     const User = sequelize.define("User", {
         //defining fields for User model
         first_name: {
@@ -11,7 +12,11 @@ module.exports = (sequelize, DataTypes) => {
         },
         email: {
             type: DataTypes.STRING,
+            unique: true,
             allowNull: false,
+            validate: {
+                isEmail: true
+            },
         },
         password: {
             type: DataTypes.STRING,
@@ -23,15 +28,31 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BOOLEAN,
             defaultValue: 0,
             allowNull: false,
-        },
+        }
     });
 
-    //associations
-    User.associate = (models) => {
-        //User will associate with Role on Many:Many
-        //allowing an user to have multiple roles if needed.
-        User.belongsToMany(models.Role, { through: "user_roles", foreignKey: "userId", otherKey: "roleId" });
-    };
+  //associations
+  User.associate = (models) => {
+    //User will associate with Role on Many:Many
+    //allowing an user to have multiple roles if needed.
+    User.belongsToMany(models.Role, {
+      through: "user_roles",
+      foreignKey: "userId",
+      otherKey: "roleId",
+    });
+    //association to course model
+    User.belongsToMany(models.Course, {
+      through: models.Users_Courses,
+      foreignKey: "userId",
+      otherKey: "courseId",
+    });
+    //association to lesson model
+    User.belongsToMany(models.Lesson, {
+      through: models.Users_Lessons,
+      foreignKey: "userId",
+      otherKey: "lessonId",
+    });
+  };
 
-    return User;
-} 
+  return User;
+};
