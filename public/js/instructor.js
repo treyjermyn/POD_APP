@@ -127,7 +127,22 @@ $(document).mouseup(function (e) {
         console.log(arrValues);
   }
     
-// add student function
+   // function to create new table row entry with add student button click
+   /*$(".student-modal-submit-button").on("click", function (e) {
+     e.preventDefault();
+      // addRow();
+      let newStudent = {
+        firstName: $(".student-first-name").val(),
+        lastName: $(".student-last-name").val(),
+        email: $(".student-email").val()
+      };
+    console.log("you got clicked!", newStudent)
+
+    //ajax call to route on the backend that saves new student to the DB!!
+
+  });*/
+
+  //Add new student
   $("#AddStu").on("click", function(){
     event.preventDefault();
     let fname = $("#stuFirst").val()
@@ -136,6 +151,7 @@ $(document).mouseup(function (e) {
     let pwd = $("#stuPwd").val() 
     //Ajax post call goes here 
     console.log(fname, lname, email, pwd)  
+
     $.ajax({
       // url: location.hostname + "/api/auth/signup",
       url: "http://localhost:8000/api/auth/signup",
@@ -150,10 +166,9 @@ $(document).mouseup(function (e) {
       success: (response) =>{
         console.log("my response", response);
         //Refresh roster to show student
-
       }
     });
-  });
+  })
 
   //Target login button after student is checked in
     let user = localStorage.getItem("User")
@@ -177,3 +192,6 @@ $("#LogoutIns").on("click", function(){
   localStorage.clear()
 
 })
+
+//function to add Course
+
