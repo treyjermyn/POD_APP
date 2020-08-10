@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 
 const bcrypt = require("bcryptjs"); //to enconde password sent by user and compare with value in DB
 //calling in models and jwt secret to verify if sign in information already exists
+// const crypto = require("crypto")
 const db = require("../models/index");
 const config = require("../config/config.json"); // only in case there is no .env defined with SECRET
 const nodemailer = require("nodemailer"); //pkg for sending registration email
