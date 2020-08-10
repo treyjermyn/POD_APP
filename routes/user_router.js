@@ -22,6 +22,12 @@ module.exports = (app) => {
     });
     //Student Route
     app.get("/api/user/student", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isStudent], userController.studentPortal)
+
+    // Student view courses
+    app.get("/api/user/student/courses", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isStudent], studentController.Users_Courses)
+
+    // Student view lessons
+    app.get("/api/user/student/courses/lessons", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isStudent], studentController.Users_Lessons)
     
     //Intructor Route
     app.get("/api/user/instructor", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], userController.instructorPortal);
@@ -44,7 +50,6 @@ module.exports = (app) => {
     //route to delete lesson
     app.delete("/api/user/instructor/lessons/delete", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.deleteLsn)
 
-    
     //Instructor Read Lessons route
     app.get("/api/user/instructor/lessons/:id", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], instructorController.getLessonsByCourse);
 
