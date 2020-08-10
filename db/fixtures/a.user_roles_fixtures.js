@@ -21,6 +21,7 @@ module.exports = [
             "confirmed" : 1,
             "createdAt": new Date().toISOString().slice(0, 19).replace('T', ' '),
             "updatedAt": new Date().toISOString().slice(0, 19).replace('T', ' '),
+        }
     },
     {
         "model": "User",
