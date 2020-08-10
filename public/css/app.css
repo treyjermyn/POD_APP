@@ -152,7 +152,6 @@
     padding-top: 8%;
     color: white;
     text-align: center;
-
   }
 
   .bottom-content-section {
@@ -174,6 +173,14 @@
 
   .hero-button {
     margin-top: 10px;
+  }
+
+  .instructor-hero-content {
+    max-width: inherit;
+    margin: 0 auto;
+    padding-top: 25%;
+    color: white;
+    text-align: center;
   }
 
 
@@ -208,12 +215,15 @@
   }
 
   .instructors-hero {
+    height: 100vh;
     background-image: url('../img/thought-catalog-xHaZ5BW9AY0-unsplash.jpg');
   }
   .students-hero {
+    height: 50vh;
     background-image: url('../img/element5-digital-jCIMcOpFHig-unsplash.jpg');
   }
   .lessons-hero {
+    height: 50vh;
     background-image: url('../img/element5-digital-OyCl7Y4y0Bk-unsplash.jpg');
   }
 
@@ -221,6 +231,48 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  /* lesson image hover text styling */
+  .lesson-card {
+    position: relative;
+    width: 50%;
+  }
+  
+  .lesson-image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .lesson-card:hover .image {
+    opacity: 0.3;
+  }
+  
+  .lesson-card:hover .middle {
+    opacity: 1;
+  }
+  
+  .text {
+    background-color: #2ba6cb;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+    border-radius: 3px;
   }
   
   /* //three sections */
@@ -248,7 +300,7 @@
   .fa {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: teal;
+  color: #2ba6cb;
   }
   
   
@@ -407,7 +459,7 @@
 }
 
 .filter-simple .filter-simple-button.hollow.is-active, .filter-simple .filter-simple-button.hollow:focus, .filter-simple .filter-simple-button.hollow:active {
-  background-color: #1779ba;
+  background-color: #2ba6cb;
   color: #fefefe;
 }
 
@@ -432,6 +484,10 @@
 .marketing-site-footer-bottom {
   background: #2c3840;
   padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 
 .marketing-site-footer-bottom p,

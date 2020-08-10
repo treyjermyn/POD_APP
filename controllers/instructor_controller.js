@@ -32,8 +32,8 @@ exports.instructorCourses = (req, res) => {
     }).then((courseData) => {
         if (courseData){
             res.status(200).json({
-                "data": courseData,
-            })
+                "data": courseData
+            });
         }
     }).catch((err) => {
         res.status(500).send(`Error Retrieving Course information -> ${err}`);
@@ -134,6 +134,99 @@ exports.updCourse = (req, res) => {
     } )
 }
 
+// Lesson Update
+//==================================================
+exports.updLesson = (req, res) => {
+    console.log(
+      `${
+        process.env.APP_ENV === "development"
+          ? "===== Updating Lesson ====="
+          : ""
+      }`
+    )
+    //course id will be passed in route
+    db.Lesson.update({
+      name: req.body.lesson_name,
+      url: req.body.url
+    },
+    {
+      where: {
+        id: req.body.lesson_id
+      }
+    })
+    .then( (rowsUpdated) => {
+      if(rowsUpdated){
+        db.lesson.findOne({
+          where: {
+            id: req.body.lesson_id //id comes from middleware after decoding JWT
+          },
+          attributes: ["id", "name", "url", "createdAt", "updatedAt"],
+          include: [{
+            model: db.course,
+            attributes: ["id", "course_name", "subject", "createdAt", "updatedAt"]
+          }]
+        }).then((lessonData) => {
+          if (lessonData){
+            res.status(200).json({
+              "data": courseData,
+            })
+          }
+        }).catch((err) => {
+          res.status(500).send(`Error Retrieving Course Information -> ${err}`)
+        })
+      }
+    })
+  }
+  
+//Delete Lesson
+//==================================================
+  exports.deleteLsn = (req, res) => {
+    //logging into console in dev env
+    console.log(
+      `${
+        process.env.APP_ENV === "developement"
+          ? "===== Delete Lesson ===="
+          : ""
+      }`
+    )
+  
+    db.Lesson.destroy({
+      where: {
+        id: req.body.lesson_id
+      }
+    }).then((lesson) => {
+      if (lesson) {
+        res.status(200).send("Lesson Delteted")
+      }
+    }).catch((err) => {
+      res.status(500).send(`Error deleting lesson -> ${err}`)
+    })
+  }
+  
+//Delete Course
+//==================================================
+  exports.deleteCrs = (req, res) => {
+    //logging into console in dev env
+    console.log(
+      `${
+        process.env.APP_ENV === "developement"
+          ? "===== Delete Course ===="
+          : ""
+      }`
+    )
+  
+    db.Course.destroy({
+      where: {
+        id: req.params.course_id
+      }
+    }).then((course) => {
+      if (course) {
+        res.status(200).send("Course Deleted")
+      }
+    }).catch((err) => {
+      res.status(500).send(`Error Deleting user -> ${err}`)
+    })
+  }
 
 //GETTING LESSONS
 exports.getLessonsByCourse = (req, res) => {

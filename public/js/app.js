@@ -71,25 +71,21 @@ $(".filter-simple-button").click(function() {
             localStorage.setItem("Token", token)
             localStorage.setItem("Role", role)
             if (role === "STUDENT"){
-              window.location.replace(window.location.href +"html/students.html");
+              window.location.replace(window.location.href + "students");
               //$(".login-button").text("Student logged in:" + user_Name)
 
             } else {
-              window.location.replace(window.location.href +"html/instructors.html");
+              window.location.replace(window.location.href + "instructors");
               //$(".login-button").text("Instructor logged in:" + user_Name)
 
             }
 
           }
           //hide login button
-          
-
         }
       });
 
     })
-
-
 
   //function to register new account
   $("#register-form")
@@ -129,8 +125,6 @@ $(".filter-simple-button").click(function() {
       });
     })
 
-    
-
     validateLogin()
     function validateLogin(){
       let token = localStorage.getItem("Token")
@@ -138,10 +132,7 @@ $(".filter-simple-button").click(function() {
         window.location.href = "/";
 
       }
-        
-
     }
-
 
     //Function to authenticate Token
     function authToken(str){
@@ -162,11 +153,6 @@ $(".filter-simple-button").click(function() {
         }
       });
     }
-  
-
-
-  
-
 
   /*Function to create verify password
   pwd_create.onfocus = function() {
@@ -220,17 +206,12 @@ $(".filter-simple-button").click(function() {
     }
   }*/
   
-
-
   //function to validate email
   function emailIsValid (email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
   }
 
-  //function to create new student roster entry
-  function newStudent() {
 
-  }
 
   
 
