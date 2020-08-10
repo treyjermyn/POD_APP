@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS POD_DB;
-CREATE DATABASE POD_DB;
+DROP DATABASE IF EXISTS pzrliyqsrwxtujgg;
+CREATE DATABASE pzrliyqsrwxtujgg;
 
 -- USE pod_db;
 
