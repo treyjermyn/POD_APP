@@ -1,37 +1,14 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POD | E-Learning</title>
-    <script src="../js/vendor/jquery.js"></script>
-    <script src="https://kit.fontawesome.com/d22ca23eb9.js" crossorigin="anonymous"></script>
-    
-    <!-- foundation CDN script -->
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-    
-    <!-- Foundation Compressed CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    
-    <!-- custom stylesheets -->
-    <link rel="stylesheet" type="text/css" href="../css/foundation.css">
-    <!-- <link rel="stylesheet" type="text/css" href="/public/css/foundation.min.css"> -->
-   <link rel="stylesheet" type="text/css" href="../css/app.css">
-  </head>
-
-<body>
-  <!-- Nav bar -->
+<!-- Nav bar -->
   <nav class="top-bar topbar-responsive">
     <div class="top-bar-title">
-      <a class="topbar-responsive-logo" href="../index.html"><strong>POD | E-Learning</strong></a>
+      <a class="topbar-responsive-logo" href="index"><strong>POD | E-Learning</strong></a>
     </div>
     <div id="topbar-responsive" class="topbar-responsive-links">
       <div class="top-bar-right">
         <ul class="menu simple vertical medium-horizontal">
-            <li><a href="../index.html">Home</a></li>
-          <li><a href="instructors.html">Instructors</a></li>
-          <li><a href="students.html">Students</a></li>
+            <li><a href="index">Home</a></li>
+          <li><a href="instructors">Instructors</a></li>
+          <li><a href="students">Students</a></li>
           <!-- <li><a href="#">Account</a></li> -->
           <li>
             <button type="button" a href="#" class="button login-button hollow topbar-responsive-button" data-open="login-Modal">Login</button>
@@ -44,48 +21,86 @@
   <!-- hero content -->
     <div class="lessons-hero homepage-hero middle-content-section">
         <div class="hero-content-section lessons-hero-content">
-            <h1 id="course-lessons">{Course Name} Lessons</h1>
-            <p class="subheader">View and manage {COURSE} lessons</p>
-            <a href="students.html"><button class="button large hero-button">Student Portal</button></a>
+            {{!-- {{#each courses}} --}}
+                <h1 id="course-lessons">{{ this.course_name }} Lessons</h1>
+                <p class="subheader">View and manage {{ this.course_name }} lessons</p>
+            {{!-- {{/each}} --}}
+            <a href="students"><button class="button large hero-button">Back to Courses</button></a>
         </div>
     </div>
 
     <!-- lessons content-->
     <section class="filter-simple lessons-row">
       <div class="button-group round">
-        <button class="button hollow filter-simple-button is-active" data-filter="all">All</button>
+        <button class="button hollow filter-simple-button is-active" data-filter="all">All Lessons</button>
+        <button class="button hollow filter-simple-button" data-filter="past-due">Past Due</button>
         <button class="button hollow filter-simple-button" data-filter="current">Current</button>
         <button class="button hollow filter-simple-button" data-filter="past">Past</button>
-        <button class="button hollow filter-simple-button" data-filter="future">Future</button>
       </div>
     
       <div class="row small-up-2 medium-up-3 courses-block">
-        <div class="column column-block filter-simple-item current">
-          <a href="#" data-open="lesson-Modal"><img src="https://spaceholder.cc/350x350" alt=""/></a>
+        <div class="column column-block filter-simple-item past-due lesson-card">
+          <a href="#" data-open="lesson-Modal"><img class="lesson-image" src="https://spaceholder.cc/350x350" alt=""/>
+              <div class="middle">
+                <div class="text">Click to View Lesson</div>
+            </div>
+          </a>
         </div>
-        <div class="column column-block filter-simple-item past">
-          <a href="#" data-open="lesson-Modal"><img src="https://placeimg.com/350/350/animals" alt=""/></a>
+        <div class="column column-block filter-simple-item past lesson-card">
+          <a href="#" data-open="lesson-Modal"><img class="lesson-image" src="https://placeimg.com/350/350/animals" alt=""/>
+              <div class="middle">
+                <div class="text">Click to View Lesson</div>
+            </div>
+          </a>
         </div>
-        <div class="column column-block filter-simple-item past">
-          <a href="#" data-open="lesson-Modal"><img src="https://placeimg.com/350/350/animals" alt=""/></a>
+        <div class="column column-block filter-simple-item past lesson-card">
+          <a href="#" data-open="lesson-Modal"><img class="lesson-image" src="https://placeimg.com/350/350/animals" alt=""/>
+              <div class="middle">
+                <div class="text">Click to View Lesson</div>
+            </div>
+          </a>
         </div>
-        <div class="column column-block filter-simple-item past">
-          <a href="#" data-open="lesson-Modal"><img src="https://placeimg.com/350/350/animals" alt=""/></a>
+        <div class="column column-block filter-simple-item past lesson-card">
+          <a href="#" data-open="lesson-Modal"><img class="lesson-image" src="https://placeimg.com/350/350/animals" alt=""/>
+              <div class="middle">
+                <div class="text">Click to View Lesson</div>
+            </div>
+          </a>
         </div>
-        <div class="column column-block filter-simple-item future">
-          <a href="#" data-open="lesson-Modal"><img src="https://placeimg.com/350/350/nature" alt=""/></a>
+        <div class="column column-block filter-simple-item current lesson-card">
+          <a href="#" data-open="lesson-Modal"><img class="lesson-image" src="https://placeimg.com/350/350/nature" alt=""/>
+              <div class="middle">
+                <div class="text">Click to View Lesson</div>
+            </div>
+          </a>
         </div>
-        <div class="column column-block filter-simple-item future">
-          <a href="#" data-open="lesson-Modal"><img src="https://placeimg.com/350/350/nature" alt=""/></a>
+        <div class="column column-block filter-simple-item current lesson-card">
+          <a href="#" data-open="lesson-Modal"><img class="lesson-image" src="https://placeimg.com/350/350/nature" alt=""/>
+              <div class="middle">
+                <div class="text">Click to View Lesson</div>
+            </div>
+          </a>
         </div>
-        <div class="column column-block filter-simple-item future">
-          <a href="#" data-open="lesson-Modal"><img src="https://placeimg.com/350/350/nature" alt=""/></a>
+        <div class="column column-block filter-simple-item current lesson-card">
+          <a href="#" data-open="lesson-Modal"><img class="lesson-image" src="https://placeimg.com/350/350/nature" alt=""/>
+              <div class="middle">
+                <div class="text">Click to View Lesson</div>
+              </div>
+          </a>
         </div>
-        <div class="column column-block filter-simple-item current">
-          <a href="#" data-open="lesson-Modal"><img src="https://spaceholder.cc/350x350" alt=""/></a>
+        <div class="column column-block filter-simple-item past-due lesson-card">
+          <a href="#" data-open="lesson-Modal"><img class="lesson-image" src="https://spaceholder.cc/350x350" alt=""/>
+              <div class="middle">
+                <div class="text">Click to View Lesson</div>
+            </div>
+          </a>
         </div>
-        <div class="column column-block filter-simple-item current">
-          <a href="#" data-open="lesson-Modal"><img src="https://spaceholder.cc/350x350" alt=""/></a>
+        <div class="column column-block filter-simple-item past-due lesson-card">
+          <a href="#" data-open="lesson-Modal"><img class="lesson-image" src="https://spaceholder.cc/350x350" alt=""/>
+              <div class="middle">
+                <div class="text">Click to View Lesson</div>
+            </div>
+          </a>
         </div>
       </div>
   </section>
@@ -167,6 +182,4 @@
   <script src="../js/vendor/what-input.js"></script>
   <script src="../js/vendor/foundation.js"></script>
   <script src="../js/app.js"></script>
-</body>
-</html>
-
+  <script src="../js/student.js"></script>

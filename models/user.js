@@ -1,4 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
+
     const User = sequelize.define("User", {
         //defining fields for User model
         first_name: {

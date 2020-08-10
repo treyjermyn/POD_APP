@@ -82,14 +82,10 @@ $(".filter-simple-button").click(function() {
 
           }
           //hide login button
-          
-
         }
       });
 
     })
-
-
 
   //function to register new account
   $("#register-form")
@@ -129,8 +125,6 @@ $(".filter-simple-button").click(function() {
       });
     })
 
-    
-
     validateLogin()
     function validateLogin(){
       let token = localStorage.getItem("Token")
@@ -138,10 +132,7 @@ $(".filter-simple-button").click(function() {
         window.location.href = "/";
 
       }
-        
-
     }
-
 
     //Function to authenticate Token
     function authToken(str){
@@ -162,11 +153,6 @@ $(".filter-simple-button").click(function() {
         }
       });
     }
-  
-
-
-  
-
 
   /*Function to create verify password
   pwd_create.onfocus = function() {
@@ -220,17 +206,12 @@ $(".filter-simple-button").click(function() {
     }
   }*/
   
-
-
   //function to validate email
   function emailIsValid (email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
   }
 
-  //function to create new student roster entry
-  function newStudent() {
 
-  }
 
   
 
