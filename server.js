@@ -6,7 +6,7 @@
 // =============================================================
 const express = require("express");
 var exphbs  = require('express-handlebars');
-require("dotenv").config();
+require("dotenv").config("production");
 const sequelize_fixtures = require("sequelize-fixtures");
 // require("custom-env").env("dev"); //env vars for development
 
