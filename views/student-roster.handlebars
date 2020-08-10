@@ -8,12 +8,12 @@
       <div class="top-bar-right">
         <ul class="menu simple vertical medium-horizontal">
             <li><a href="/">Home</a></li>
-          <li><a href="instructors">Instructors</a></li>
-          <li><a href="students">Students</a></li>
+          {{!-- <li><a href="instructors">Instructors</a></li>
+          <li><a href="students">Students</a></li> --}}
           <!-- <li><a href="#">Account</a></li> -->
           <li>
-            <button type="button" a href="#" class="button login-button hollow topbar-responsive-button" data-open="login-Modal">Login</button>
-          </li>
+            <button type="button" a href="#" class="button login-button hollow topbar-responsive-button" data-open="login-Modal" id="LoginIns">Login</button>
+            <button type="button" a href="#" class="button login-button hollow topbar-responsive-button hide" id="LogoutIns">LOG OUT</button>          </li>
         </ul>
       </div>
     </div>
@@ -41,9 +41,9 @@
             <th width="50"></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="emptyTable">
           {{!-- {{#each }} --}}
-          <tr class="table-expand-row">
+          <tr class="table-expand-row table-row">
             <td></td>
             <td></td>
             <td></td>
@@ -131,8 +131,8 @@
             <div class="column">
             <ul class="menu marketing-site-footer-bottom-links footer-copy">
                 <li><a href="/">Home</a></li>
-                <li><a href="instructors">Instructors</a></li>
-                <li><a href="students">Students</a></li>
+                {{!-- <li><a href="instructors">Instructors</a></li>
+                <li><a href="students">Students</a></li> --}}
                 <!-- <li><a href="#">Account</a></li> -->
                 <li><a href="#" data-open="contact-Modal">Contact Us</a></li>
             </ul>

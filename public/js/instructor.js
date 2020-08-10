@@ -47,16 +47,17 @@ $(document).mouseup(function (e) {
     // function to add new row.
     function addRow() {
         var empTab = $('#emptyTable');
-
-        var rowCnt = empTab.rows.length;    // get the number of rows.
-        var tr = empTab.insertRow(rowCnt); // table row.
-        tr = empTab.insertRow(rowCnt);
+        var rowCnt = empTab.length;    // get the number of rows.
+        var empRow = $('.table-row')
+        // var tr = []; // table row.
+        empTab.insertRow(empRow);
 
         let newStudent = {
-          firstName: $(".student-first-name").value,
-          lastName: $(".student-last-name").value,
-          email: $(".student-email").value
+          firstName: $(".student-first-name").val(),
+          lastName: $(".student-last-name").val(),
+          email: $(".student-email").val()
         };
+
 
         for (let c = 0; c < headerArray.length; c++) {
 
@@ -96,6 +97,7 @@ $(document).mouseup(function (e) {
               ele.attr('value', '');
               email.append(ele);
             }
+            empRow.push(newStudent);
         }
     }
 
@@ -183,7 +185,6 @@ $(document).mouseup(function (e) {
 
   }
 )
-
 
 //funtion to log out
 $("#LogoutIns").on("click", function(){
