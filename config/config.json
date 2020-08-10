@@ -13,5 +13,12 @@
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
+  },
+  "production": {
+    "username": "process.env.JDB_USER",
+    "password": "process.env.JDB_PASS",
+    "database": "process.env.JDB_DB",
+    "host": "process.env.JDB_HOST",
+    "dialect": "mysql"
   }
 }
