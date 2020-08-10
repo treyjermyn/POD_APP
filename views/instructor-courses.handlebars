@@ -66,26 +66,16 @@
           <div class="course-modal-form-section">
             <h1 class="course-modal-title">Add New Course</h1>
             <input class="course-modal-input" type="text" name="coursename" placeholder="Course Name"/>
-            <div>
-                <input class="course-modal-input" type="checkbox" name="mathcheckbox" placeholder="Mathematics"/>
-                <label>Mathematics</label>
-            </div>
-            <div>
-                <input class="course-modal-input" type="checkbox" name="mathcheckbox" placeholder="Science"/>
-                <label>Science</label>
-            </div>
-            <div>
-                <input class="course-modal-input" type="checkbox" name="mathcheckbox" placeholder="Social Studies"/>
-                <label>Social Studies</label>
-            </div>
-            <div>
-                <input class="course-modal-input" type="checkbox" name="mathcheckbox" placeholder="Language Arts"/>
-                <label>Language Arts</label>
-            </div>
-            <div>
-                <input class="course-modal-input" type="checkbox" name="mathcheckbox" placeholder="Computer Science"/>
-                <label>Computer Science</label>
-            </div>
+
+            <select class="course-modal-input" name="subject" id="crs-id">
+              <option value="Mathematics">Mathematics</option>
+              <option value="Mathematics">Science</option>
+              <option value="Mathematics">Social Studies</option>
+              <option value="Mathematics">Language Arts</option>
+              <option value="Mathematics">Computer Science</option>
+            </select>
+
+            
             <input class="course-modal-submit-button button medium" type="submit" name="new_course_submit" value="Add Course"/>
           </div>
         </div>
