@@ -152,7 +152,6 @@
     padding-top: 8%;
     color: white;
     text-align: center;
-
   }
 
   .bottom-content-section {
@@ -174,6 +173,14 @@
 
   .hero-button {
     margin-top: 10px;
+  }
+
+  .instructor-hero-content {
+    max-width: inherit;
+    margin: 0 auto;
+    padding-top: 25%;
+    color: white;
+    text-align: center;
   }
 
 
@@ -208,12 +215,15 @@
   }
 
   .instructors-hero {
+    height: 100vh;
     background-image: url('../img/thought-catalog-xHaZ5BW9AY0-unsplash.jpg');
   }
   .students-hero {
+    height: 50vh;
     background-image: url('../img/element5-digital-jCIMcOpFHig-unsplash.jpg');
   }
   .lessons-hero {
+    height: 50vh;
     background-image: url('../img/element5-digital-OyCl7Y4y0Bk-unsplash.jpg');
   }
 
@@ -474,6 +484,10 @@
 .marketing-site-footer-bottom {
   background: #2c3840;
   padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 
 .marketing-site-footer-bottom p,

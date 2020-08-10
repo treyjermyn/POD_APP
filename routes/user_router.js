@@ -12,6 +12,7 @@ module.exports = (app) => {
     //importing user controller for redirection
     const userController = require("../controllers/user_controller");
     const instructorController = require("../controllers/instructor_controller");
+    const studentController = require("../controllers/student_controller");
 
     app.use((req, res, next) => {
         res.header(
@@ -21,7 +22,7 @@ module.exports = (app) => {
     });
     //Student Route
     app.get("/api/user/student", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isStudent], userController.studentPortal)
-
+    
     //Intructor Route
     app.get("/api/user/instructor", [JwtTokenValidator.fnVerifyToken, JwtTokenValidator.isInstructor], userController.instructorPortal);
 
