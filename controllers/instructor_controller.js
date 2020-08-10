@@ -32,8 +32,8 @@ exports.instructorCourses = (req, res) => {
     }).then((courseData) => {
         if (courseData){
             res.status(200).json({
-                "data": courseData,
-            })
+                "data": courseData
+            });
         }
     }).catch((err) => {
         res.status(500).send(`Error Retrieving Course information -> ${err}`);
