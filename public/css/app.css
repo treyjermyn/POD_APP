@@ -347,6 +347,11 @@
   margin: 40px 20px 20px 40px;
 }
 
+.roster-delete {
+  padding: 6px;
+  font-size: 15px;
+}
+
 /* student portal pop-up email form */
 
 .contact-panel-button {

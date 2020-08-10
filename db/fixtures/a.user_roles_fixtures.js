@@ -4,7 +4,7 @@ module.exports = [
         "data": {
             "first_name": "JOHN",
             "last_name" : "DOE",
-            "email"     : "johnnydoe.com",
+            "email"     : "johnnydoe@email.com",
             "password"  : "$2y$12$x9mbOD2eawDl9k77cJuiBuRsyKJmmLENjBDmE8kfm22Whbntlvuh6", //12345
             "confirmed" : 0,
             "createdAt": new Date().toISOString().slice(0, 19).replace('T', ' '),
