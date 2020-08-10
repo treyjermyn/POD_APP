@@ -71,11 +71,11 @@ $(".filter-simple-button").click(function() {
             localStorage.setItem("Token", token)
             localStorage.setItem("Role", role)
             if (role === "STUDENT"){
-              window.location.replace(window.location.href +"html/students.html");
+              window.location.replace(window.location.href + "students");
               //$(".login-button").text("Student logged in:" + user_Name)
 
             } else {
-              window.location.replace(window.location.href +"html/instructors.html");
+              window.location.replace(window.location.href + "instructors");
               //$(".login-button").text("Instructor logged in:" + user_Name)
 
             }

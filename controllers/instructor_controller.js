@@ -32,8 +32,8 @@ exports.instructorCourses = (req, res) => {
     }).then((courseData) => {
         if (courseData){
             res.status(200).json({
-                "data": courseData,
-            })
+                "data": courseData
+            });
         }
     }).catch((err) => {
         res.status(500).send(`Error Retrieving Course information -> ${err}`);
@@ -240,8 +240,12 @@ exports.getLessonsByCourse = (req, res) => {
 
       db.Lesson.findAll({
           where: {
-              CourseId: req.body.course_id
-          }
+              CourseId: req.params.id
+          },
+          include: [{
+            model: db.Course,
+            attributes: ["id", "course_name", "subject", "createdAt", "updatedAt"]
+          }]
       })
       .then( (lessons) => {
           if(lessons){

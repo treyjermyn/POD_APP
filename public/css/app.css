@@ -152,7 +152,6 @@
     padding-top: 8%;
     color: white;
     text-align: center;
-
   }
 
   .bottom-content-section {
@@ -174,6 +173,14 @@
 
   .hero-button {
     margin-top: 10px;
+  }
+
+  .instructor-hero-content {
+    max-width: inherit;
+    margin: 0 auto;
+    padding-top: 25%;
+    color: white;
+    text-align: center;
   }
 
 
@@ -208,12 +215,15 @@
   }
 
   .instructors-hero {
+    height: 100vh;
     background-image: url('../img/thought-catalog-xHaZ5BW9AY0-unsplash.jpg');
   }
   .students-hero {
+    height: 50vh;
     background-image: url('../img/element5-digital-jCIMcOpFHig-unsplash.jpg');
   }
   .lessons-hero {
+    height: 50vh;
     background-image: url('../img/element5-digital-OyCl7Y4y0Bk-unsplash.jpg');
   }
 
@@ -335,6 +345,23 @@
 
 .courses-block {
   margin: 40px 20px 20px 40px;
+}
+
+/* .dropdown {
+  display: block;
+  box-sizing: border-box;
+  width: 75%;
+  height: 2.4375rem;
+  margin: 0 0 1rem;
+  padding: 0.5rem;
+  border: 1px solid #cacaca;
+  border-radius: 3px;
+  background-color: #fefefe;
+} */
+
+.roster-delete {
+  padding: 6px;
+  font-size: 15px;
 }
 
 /* student portal pop-up email form */
@@ -474,6 +501,10 @@
 .marketing-site-footer-bottom {
   background: #2c3840;
   padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 
 .marketing-site-footer-bottom p,

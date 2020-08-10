@@ -8,12 +8,12 @@
       <div class="top-bar-right">
         <ul class="menu simple vertical medium-horizontal">
             <li><a href="/">Home</a></li>
-          <li><a href="instructors">Instructors</a></li>
-          <li><a href="students">Students</a></li>
+          {{!-- <li><a href="instructors">Instructors</a></li>
+          <li><a href="students">Students</a></li> --}}
           <!-- <li><a href="#">Account</a></li> -->
           <li>
-            <button type="button" a href="#" class="button login-button hollow topbar-responsive-button" data-open="login-Modal">Login</button>
-          </li>
+            <button type="button" a href="#" class="button login-button hollow topbar-responsive-button" data-open="login-Modal" id="LoginIns">Login</button>
+            <button type="button" a href="#" class="button login-button hollow topbar-responsive-button hide" id="LogoutIns">LOG OUT</button>          </li>
         </ul>
       </div>
     </div>
@@ -35,14 +35,23 @@
       <table class="table-expand">
         <thead>
           <tr class="table-expand-row">
+            <th width="200">Class Name</th>
             <th width="200">First Name</th>
             <th width="200">Last Name</th>
             <th width="300">Email Address</th>
-            <th width="100"></th>
+            <th width="50"></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="emptyTable">
           {{!-- {{#each }} --}}
+          {{!-- <tr class="table-expand-row table-row">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button class="button large hero-button roster-delete">Delete</button></td>
+          </tr> --}}
+          {{!-- {{/each }} --}}
+
         </tbody>
         </table>
     </div>
@@ -65,21 +74,25 @@
 
       <!-- Add New Student Modal -->
   <div class = "reveal" id="student-Modal" data-reveal>
+    <form form data-abide novalidate id="newStu">
       <div class="student-box">
         <div class="row collapse expanded">
           <div class="small-12 medium-6 column small-order-2 medium-order-1">
             <div class="student-modal-form-section">
               <h1 class="student-modal-title">Add New Student</h1>
-              <input class="student-first-name" type="text" name="username" placeholder="First Name"/>
-              <input class="student-last-name" type="text" name="username" placeholder="Last Name"/>
-              <input class="student-email" type="email" name="email" placeholder="E-mail" />
-              <input class="student-password" type="password" name="password" placeholder="Password" />
-              <input class="student-confirm-password" type="password" name="password2" placeholder="Retype password" />
-              <input class="student-modal-submit-button button medium" type="submit" name="new_student_submit" value="Add Student" />
+              <input class="student-first-name" type="text" name="username" placeholder="First Name" id="stuFirst" required/>
+              <input class="student-last-name" type="text" name="username" placeholder="Last Name" id= "stuLast" required/>
+              <input class="student-email" type="email" name="email" placeholder="E-mail" required pattern="email" id="stuMail"/>
+              <input class="student-password" type="password" name="password" placeholder="Password" id="stuPwd"/>
+              <input class="student-confirm-password" type="password" name="password2" placeholder="Retype password" data-equalto="stuPwd"/>
+              <input class="student-modal-submit-button button medium" type="submit" name="new_student_submit" value="Add Student" id="AddStu" />
             </div>
           </div>
         </div>
       </div>
+
+    </form>
+      
   </div>
 
   <!-- Contact Us Modal -->
@@ -118,9 +131,9 @@
             </div>
             <div class="column">
             <ul class="menu marketing-site-footer-bottom-links footer-copy">
-                <li><a href="index">Home</a></li>
-                <li><a href="instructors">Instructors</a></li>
-                <li><a href="students">Students</a></li>
+                <li><a href="/">Home</a></li>
+                {{!-- <li><a href="instructors">Instructors</a></li>
+                <li><a href="students">Students</a></li> --}}
                 <!-- <li><a href="#">Account</a></li> -->
                 <li><a href="#" data-open="contact-Modal">Contact Us</a></li>
             </ul>
@@ -133,4 +146,5 @@
   <script src="../js/vendor/foundation.js"></script>
   <script src="../js/app.js"></script>
   <script src="../js/instructor.js"></script>
+  <script src="../js/instructor-roster.js"></script>
 </body>

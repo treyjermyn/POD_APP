@@ -22,19 +22,20 @@ module.exports = function(app) {
   // course route loads course.handlebars, requests Course data from DB to
   // populate the applicable courses
   app.get("/course", function(req, res) {
-    var cleanCourse = []
-    db.Course.findAll({}).then(function(data){
-      //console.log('data from db!!!', data)
-      for (let i = 0; i < data.length; i++) {
-        cleanCourse.push(data[i].dataValues)
+    // var cleanCourse = []
+    // db.Course.findAll({}).then(function(data){
+    //   //console.log('data from db!!!', data)
+    //   for (let i = 0; i < data.length; i++) {
+    //     cleanCourse.push(data[i].dataValues)
         
-      }
-      console.log('cleaner courseddd', cleanCourse)
-      var hbsObject = {
-        courses: cleanCourse
-      }
-      res.render('course', hbsObject)
-    })
+    //   }
+    //   console.log('cleaner courseddd', cleanCourse)
+    //   var hbsObject = {
+    //     courses: cleanCourse
+    //   }
+    // })
+     res.render('course');
+    //res.render('students');
   })
 
   // student-roster route loads student-roster.handlebars

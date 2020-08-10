@@ -47,16 +47,17 @@ $(document).mouseup(function (e) {
     // function to add new row.
     function addRow() {
         var empTab = $('#emptyTable');
-
-        var rowCnt = empTab.rows.length;    // get the number of rows.
-        var tr = empTab.insertRow(rowCnt); // table row.
-        tr = empTab.insertRow(rowCnt);
+        var rowCnt = empTab.length;    // get the number of rows.
+        var empRow = $('.table-row')
+        // var tr = []; // table row.
+        empTab.insertRow(empRow);
 
         let newStudent = {
-          firstName: $(".student-first-name").value,
-          lastName: $(".student-last-name").value,
-          email: $(".student-email").value
+          firstName: $(".student-first-name").val(),
+          lastName: $(".student-last-name").val(),
+          email: $(".student-email").val()
         };
+
 
         for (let c = 0; c < headerArray.length; c++) {
 
@@ -96,6 +97,7 @@ $(document).mouseup(function (e) {
               ele.attr('value', '');
               email.append(ele);
             }
+            empRow.push(newStudent);
         }
     }
 
@@ -126,7 +128,7 @@ $(document).mouseup(function (e) {
   }
     
    // function to create new table row entry with add student button click
-   $(".student-modal-submit-button").on("click", function (e) {
+   /*$(".student-modal-submit-button").on("click", function (e) {
      e.preventDefault();
       // addRow();
       let newStudent = {
@@ -138,7 +140,35 @@ $(document).mouseup(function (e) {
 
     //ajax call to route on the backend that saves new student to the DB!!
 
-  });
+  });*/
+
+  //Add new student
+  $("#AddStu").on("click", function(){
+    event.preventDefault();
+    let fname = $("#stuFirst").val()
+    let lname = $("#stuLast").val()
+    let email = $("#stuMail").val()
+    let pwd = $("#stuPwd").val() 
+    //Ajax post call goes here 
+    console.log(fname, lname, email, pwd)  
+
+    $.ajax({
+      // url: location.hostname + "/api/auth/signup",
+      url: "http://localhost:8000/api/auth/signup",
+      method: "POST",
+      data: {
+            "first_name": fname,
+            "last_name": lname,
+            "email": email,
+            "role": "STUDENT",
+            "password": pwd
+          },
+      success: (response) =>{
+        console.log("my response", response);
+        //Refresh roster to show student
+      }
+    });
+  })
 
   //Target login button after student is checked in
     let user = localStorage.getItem("User")
@@ -156,10 +186,12 @@ $(document).mouseup(function (e) {
   }
 )
 
-
 //funtion to log out
 $("#LogoutIns").on("click", function(){
   window.location.href = "/";
   localStorage.clear()
 
 })
+
+//function to add Course
+

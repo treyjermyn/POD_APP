@@ -7,11 +7,12 @@
       <div class="top-bar-right">
         <ul class="menu simple vertical medium-horizontal">
             <li><a href="/">Home</a></li>
-            <li><a href="instructors">Instructors</a></li>
-            <li><a href="students">Students</a></li>
+            {{!-- <li><a href="instructors">Instructors</a></li>
+            <li><a href="students">Students</a></li> --}}
             {{!-- <li><a href="#">Account</a></li> --}}
           <li>
-            <button type="button" a href="#" class="button login-button hollow topbar-responsive-button" data-open="login-Modal">Login</button>
+            <button type="button" a href="#" class="button login-button hollow topbar-responsive-button" data-open="login-Modal" id="LoginIns">Login</button>
+            <button type="button" a href="#" class="button login-button hollow topbar-responsive-button hide" id="LogoutIns">LOG OUT</button>
           </li>
         </ul>
       </div>
@@ -21,10 +22,11 @@
   <!-- hero content -->
   <div class="hero-full-screen">
         <div class="instructors-hero homepage-hero middle-content-section">
-            <div class="hero-content-section">
+            <div class="instructor-hero-content">
                 <h1>Instructors Portal</h1>
                 <p class="subheader">Manage your courses, lessons and student roster all in one place.</p>
                 <a href="instructor-courses"><button class="button large hero-button">Courses</button></a>
+                {{!-- <button class="button large hero-button" id="gt-course">Courses</button> --}}
                 <a href="student-roster"><button class="button large hero-button">Student Roster</button></a>
             </div>
         </div>
@@ -110,9 +112,9 @@
         </div>
         <div class="column">
           <ul class="menu marketing-site-footer-bottom-links footer-copy">
-            <li><a href="index">Home</a></li>
-            <li><a href="instructors">Instructors</a></li>
-            <li><a href="students">Students</a></li>
+            <li><a href="/">Home</a></li>
+            {{!-- <li><a href="instructors">Instructors</a></li>
+            <li><a href="students">Students</a></li> --}}
             {{!-- <li><a href="#">Account</a></li> --}}
             <li><a href="#" data-open="contact-Modal">Contact Us</a></li>
           </ul>
