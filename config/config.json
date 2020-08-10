@@ -15,12 +15,7 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "process.env.JDB_USER",
-    "password": "process.env.JDB_PASS",
-    "database": "process.env.JDB_DB",
-    "host": "process.env.JDB_HOST",
-    "dialect": "mysql",
-    "secret": "add-secret-string-here-for-JWT",
-    "use_env_variable": "JAWSDB_URL"
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
   }
 }
