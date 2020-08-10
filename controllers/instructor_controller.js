@@ -240,8 +240,12 @@ exports.getLessonsByCourse = (req, res) => {
 
       db.Lesson.findAll({
           where: {
-              CourseId: req.body.course_id
-          }
+              CourseId: req.params.id
+          },
+          include: [{
+            model: db.Course,
+            attributes: ["id", "course_name", "subject", "createdAt", "updatedAt"]
+          }]
       })
       .then( (lessons) => {
           if(lessons){
