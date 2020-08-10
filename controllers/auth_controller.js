@@ -30,6 +30,8 @@ exports.signup = (req, res) => {
     last_name: req.body.last_name.toUpperCase(),
     email: req.body.email.toUpperCase(),
     password: bcrypt.hashSync(req.body.password, 10),
+    emailToken: crypto.randomBytes(64).toString('hex'),
+    isVerified: false,
   })
     .then((user) => {
       Role.findAll({

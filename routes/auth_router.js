@@ -2,6 +2,7 @@
 //===========================================
 const VerifySignUp = require("../middlewares/fnVerifySignUp");
 const JwtTokenValidator = require("../middlewares/fnVerifyJwtToken");
+const crypto = require('crypto');
 
 // auth routes
 module.exports = (app) => {
