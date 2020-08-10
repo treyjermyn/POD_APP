@@ -126,7 +126,7 @@ $(document).mouseup(function (e) {
   }
     
    // function to create new table row entry with add student button click
-   $(".student-modal-submit-button").on("click", function (e) {
+   /*$(".student-modal-submit-button").on("click", function (e) {
      e.preventDefault();
       // addRow();
       let newStudent = {
@@ -138,7 +138,35 @@ $(document).mouseup(function (e) {
 
     //ajax call to route on the backend that saves new student to the DB!!
 
-  });
+  });*/
+
+  //Add new student
+  $("#AddStu").on("click", function(){
+    event.preventDefault();
+    let fname = $("#stuFirst").val()
+    let lname = $("#stuLast").val()
+    let email = $("#stuMail").val()
+    let pwd = $("#stuPwd").val() 
+    //Ajax post call goes here 
+    console.log(fname, lname, email, pwd)  
+
+    $.ajax({
+      // url: location.hostname + "/api/auth/signup",
+      url: "http://localhost:8000/api/auth/signup",
+      method: "POST",
+      data: {
+            "first_name": fname,
+            "last_name": lname,
+            "email": email,
+            "role": "STUDENT",
+            "password": pwd
+          },
+      success: (response) =>{
+        console.log("my response", response);
+        //Refresh roster to show student
+      }
+    });
+  })
 
   //Target login button after student is checked in
     let user = localStorage.getItem("User")
@@ -163,3 +191,6 @@ $("#LogoutIns").on("click", function(){
   localStorage.clear()
 
 })
+
+//function to add Course
+
