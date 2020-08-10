@@ -19,6 +19,8 @@
     "password": "process.env.JDB_PASS",
     "database": "process.env.JDB_DB",
     "host": "process.env.JDB_HOST",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "secret": "add-secret-string-here-for-JWT",
+    "use_env_variable": "JAWSDB_URL"
   }
 }
