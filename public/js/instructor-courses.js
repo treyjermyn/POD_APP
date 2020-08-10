@@ -20,6 +20,7 @@ $(document).ready(
             crsContainer.attr("data-crsd", course.id);
             //create <a> tag
             const crsATag = $("<a>");
+            crsATag.attr("href", `/course?id=${course.id}`);
             //create img tag
             const crsImg = $("<img>");
             //attrs and classes for img
