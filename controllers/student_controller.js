@@ -37,9 +37,9 @@ exports.Users_Courses = (req, res) => {
     });
 }
 
-//STUDENT ASSINGED LESSONS
+//All STUDENT ASSINGED LESSONS
 
-exports.Users_Lessons = (req, res) => {
+exports.allUsersLessons = (req, res) => {
     console.log(
         `${
           process.env.APP_ENV === "development"
@@ -47,5 +47,55 @@ exports.Users_Lessons = (req, res) => {
             : ""
         }`
       );
+
+      db.Lesson.findAll({
+          where: {
+              CourseId: req.params.id
+          },
+          include: [{
+              model: db.Course,
+            //   model: db.Lesson,
+              attributes: ["id", "course_name", "subject", "createdAt", "updatedAt"]
+          }]
+      })
+      .then( (lessons) => {
+          if(lessons) {
+              res.status(200).json({
+                  "data": lessons,
+              })
+          }
+      })
+      .catch((err) => {
+          res.status(500).send(`Retrieving Lesson information -> ${err}`)
+      })
 }
 
+//ONE STUDENT LESSON
+exports.userLesson = (req, res) => {
+    console.log(
+        `${
+            process.env.APP_ENV === "development"
+            ? "===== Gettring Lesson by ID ====="
+            : ""
+        }`
+    );
+
+    db.Lesson.findOne({
+        where: {
+            id: req.params.lesson_id
+        },
+        include: db.Lesson,
+        // include: db.Course,
+        attributes: ["id", "course_name", "subject", "createdAt", "updatedAt"]
+    })
+    .then( (lesson) => {
+        if (lesson) {
+            res.status(200).json({
+                "data": lesson
+            })
+        }
+    })
+    .catch((err) => {
+        res.status(500).send(`Error Retrieving Lesson information -> ${err}`)
+    })
+}
